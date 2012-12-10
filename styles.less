@@ -11,12 +11,33 @@
 
 * {
     box-sizing: border-box;
+    font-family: Monda;
+    font-size: 120%;
+}
+
+.slide ul,
+.slide li {
+    padding: 0;
+}
+
+.centered {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+}
+
+.pull-left {
+    display: inline-block;
+    float: left;
+}
+
+.pull-right {
+    float: right;
 }
 
 .slide {
     border-bottom: 2em solid @color1;
     border-top: 2em solid @color3;
-    font-family: Monda;
     margin-bottom: -2.1em;
 }
 
@@ -48,6 +69,12 @@
     font-variant: small-caps;
 }
 
-.about-me h1 {
-    color: @color2;
+.about-me div {
+    margin-left: -15em;
+    margin-top: -155px;
+    width: 30em;
+}
+
+.about-me ul {
+    list-style: none;
 }
