@@ -20,14 +20,23 @@
     margin-bottom: -2.1em;
 }
 
-.deck-status {
+.deck-status,
+.slide::after {
     bottom: 0;
     font-size: 120%;
     position: fixed;
+}
+
+.deck-status {
     right: 1em;
     z-index: 9;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
+}
+
+.slide::after {
+    content: "Phing All The Things - Omni Adams";
+    left: 1em;
 }
 
 .title h1 {
