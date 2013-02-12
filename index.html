@@ -153,6 +153,26 @@
     </ul>
 </section>
 
+<section class="slide phpunit-4">
+    <pre>
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;project name=&quot;phing-the-things&quot;&gt;
+        &lt;target name=&quot;test&quot;&gt;
+            <span class="highlight">&lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;</span>
+        &lt;/target&gt;
+    &lt;/project&gt;
+    </pre>
+    <ul class="note">
+        <li>Finally, the exec tag that actually does the work</li>
+        <li>This is called a task in phing terminology</li>
+        <li>There are a bunch of fancy tasks pre-written</li>
+        <li>You can write new ones</li>
+        <li>exec is a very powerful task if you're CLI-inclined</li>
+        <li>I'll show some more complicated execs later</li>
+        <li>There is a phpunit task, but it is pretty limited</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
