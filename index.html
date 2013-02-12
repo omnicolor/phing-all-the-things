@@ -269,7 +269,24 @@ Total time: 0.5619 seconds</span></pre>
     <img src="images/lolwut.jpg">
     <ul class="note">
         <li>So if you have to add this extra attribute to get sane behavior...</li>
-        <li>The phpunit task is limited.</li>
+        <li>The phpunit task is limited in what you can configure</li>
+    </ul>
+</section>
+
+<section class="slide phpunit-vs-exec">
+    <ul>
+        <li>strict</li>
+        <li>colors</li>
+        <li>groups</li>
+        <li>command line flags</li>
+    </ul>
+    <ul class="note">
+        <li>Here's some things that the phpunit task doesn't seem to support</li>
+        <li>strict for catching tests with no assertions</li>
+        <li>colors for prettier output</li>
+        <li>groups for targetting tests</li>
+        <li>and command line flags for changing behavior at run time</li>
+        <li>If you don't care about these, use the real task</li>
     </ul>
 </section>
 
