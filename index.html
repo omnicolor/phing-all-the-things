@@ -85,6 +85,26 @@
     </ul>
 </section>
 
+<section class="slide phpunit-0">
+    <pre>
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;project name=&quot;phing-the-things&quot;&gt;
+        &lt;target name=&quot;test&quot;&gt;
+            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+        &lt;/target&gt;
+    &lt;/project&gt;
+    </pre>
+    <ul class="note">
+        <li>Here's a really simple build.xml file</li>
+        <li>Your most basic phing building block is the target</li>
+        <li>Targets do things</li>
+        <li>... or do logic</li>
+        <li>... or set variables (which we'll get to)</li>
+        <li>In this case the target calls one task: exec</li>
+        <li>That calls the phpunit executable</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
