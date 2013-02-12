@@ -137,6 +137,22 @@
     </ul>
 </section>
 
+<section class="slide phpunit-3">
+    <pre>
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;project name=&quot;phing-the-things&quot;&gt;
+        <span class="highlight">&lt;target name=&quot;test&quot;&gt;</span>
+            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+        <span class="highlight">&lt;/target&gt;</span>
+    &lt;/project&gt;
+    </pre>
+    <ul class="note">
+        <li>Then the actual target tag</li>
+        <li>We'll cover this more in depth as well later</li>
+        <li>For now, know that the name is what you use to call it with</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
