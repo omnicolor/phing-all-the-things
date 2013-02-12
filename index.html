@@ -199,6 +199,31 @@ Total time: 0.3155 seconds</span></pre>
     </li>
 </section>
 
+<section class="slide phpunit-6">
+<pre class="cli"><span class="invert-fail">F</span>.............................
+
+Time: 0 seconds, Memory: 7.25Mb
+
+There was 1 failure:
+
+1) GitTest::testGetCommitInfo
+LOL cats have clogged the tubes!
+
+/Users/Omni/phing-example/tests/GitTest.php:51
+
+<span class="invert-fail">FAILURES!
+Tests: 30, Assertions: 51, Failures: 1.</span>
+<span class="fail">
+Execution of target "test" failed for the following reason: /Users/Omni/phing-example/build.xml:102:46: Task exited with code 1
+
+BUILD FAILED
+/Users/Omni/phing-example/build.xml:102:46: Task exited with code 1
+Total time: 0.5653 seconds</span></pre>
+    <ul class="note">
+        <li>If you have a failing test, you'll get something more like this</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
