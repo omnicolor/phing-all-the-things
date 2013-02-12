@@ -224,6 +224,45 @@ Total time: 0.5653 seconds</span></pre>
     </ul>
 </section>
 
+<section class="slide phpunit-7">
+    <pre>
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;project name=&quot;phing-the-things&quot;&gt;
+        &lt;target name=&quot;test&quot;&gt;
+            &lt;exec executable="phpunit" passthru="true" <span class="highlight strike">checkreturn="true"</span> /&gt;
+        &lt;/target&gt;
+    &lt;/project&gt;
+    </pre>
+    <ul class="note">
+        <li>Remember that checkreturn attribute earlier?</li>
+        <li>Here's what happens if you leave it off</li>
+        <li>Or you set it to false</li>
+    </ul>
+</section>
+
+<section class="slide phpunit-8">
+<pre class="cli"><span class="invert-fail">F</span>.............................
+
+Time: 0 seconds, Memory: 7.25Mb
+
+There was 1 failure:
+
+1) GitTest::testGetCommitInfo
+LOL cats have clogged the tubes!
+
+/Users/Omni/phing-example/tests/GitTest.php:51
+
+<span class="invert-fail">FAILURES!
+Tests: 30, Assertions: 51, Failures: 1.</span>
+
+<span class="pass">BUILD FINISHED
+
+Total time: 0.5619 seconds</span></pre>
+    <ul class="note">
+        <li>The PHPunit task should fail a build if it fails</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
