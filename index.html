@@ -308,6 +308,20 @@ Total time: 0.5619 seconds</span></pre>
     </ul>
 </section>
 
+<section class="slide even-more-phpunit">
+    <pre class="prettyprint">
+    &lt;target name=&quot;test&quot;&gt;
+        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; <span class=&quot;highlight strike&quot;>checkreturn=&quot;true&quot;</span>&gt;
+            <span class="highlight">&lt;arg value=&quot;${phpunitFlag}&quot; /&gt;</span>
+        &lt;/exec&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Another that's pretty helpful is a flag</li>
+        <li>This lets you modify phpunit behavior while running phing</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
