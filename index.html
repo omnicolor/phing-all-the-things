@@ -372,6 +372,32 @@ Total time: 0.1058 seconds</span></pre>
     </ul>
 </section>
 
+<section class="slide properties-3">
+    <pre>composer=/opt/composer.phar
+docdir=/home/omni/Documents/coverage
+server1.user=oadams
+server1.url=www.example.lan</pre>
+    <pre class="prettyprint">    &lt;exec executable=&quot;${composer}" /&gt;
+    &lt;exec executable=&quot;ssh" passthru="true"&gt;
+        &lt;arg value=&quot;-t&quot; /&gt;
+        &lt;arg value=&quot;${server1.user}@${server1.url}&quot; /&gt;
+        &lt;arg value=&quot;sudo /sbin/service httpd restart&quot; /&gt;
+    &lt;/exec&gt;</pre>
+    <ul class="note">
+        <li>Another way of setting properties is build.properties</li>
+        <li>Simple name equals value text file</li>
+        <li>Probably should be ignored in your source control</li>
+        <li>At the top you see an example build.properties</li>
+        <li>Each of these are usable in your build file</li>
+        <li>This first exec shows how to set where your composer.phar is</li>
+        <li>
+            The second shows using a user and hostname to restart apache with
+            SSH
+        </li>
+        <li>We'll get more into this sort of advanced magic later</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
