@@ -291,6 +291,23 @@ Total time: 0.5619 seconds</span></pre>
     </ul>
 </section>
 
+<section class="slide more-phpunit">
+    <pre class="prettyprint">
+    &lt;target name=&quot;test&quot;&gt;
+        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; <span class=&quot;highlight strike&quot;>checkreturn=&quot;true&quot;</span>&gt;
+            <span class="highlight">&lt;arg value=&quot;--exclude-group=integration&quot; /&gt;</span>
+        &lt;/exec&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>One argument I like to be able to include</li>
+        <li>exclude-group (or include-group)</li>
+        <li>Lets you target tests with @group annotations</li>
+        <li>So you can organize your tests a bit</li>
+        <li>Like smoke, integration, selenium, or whatever</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
