@@ -398,6 +398,48 @@ server1.url=www.example.lan</pre>
     </ul>
 </section>
 
+<section class="slide filesets-0">
+    <img alt="Smelly feet" class="centered" src="images/cat-feet.jpg">
+    <ul class="note">
+        <li>Any of y'all use PHP code sniffer?</li>
+        <li>It's a tool that sniffs your code to find possible problems</li>
+        <li>
+            If you use any third-party libraries, your phpcs may have irrelevant
+            warnings
+        </li>
+        <li>One way to fix that is with filesets</li>
+    </ul>
+</section>
+
+<section class="slide filesets-1">
+    <pre class="prettyprint">
+    &lt;patternset id=&quot;<span class="highlight">files</span>&quot;&gt;
+        &lt;include name=&quot;**/*.php&quot; /&gt;
+        &lt;exclude name=&quot;third-party/**&quot; /&gt;
+        &lt;exclude name=&quot;vendor/**&quot; /&gt;
+    &lt;/patternset&gt;
+    &lt;target name=&quot;phpcs&quot;&gt;
+        &lt;phpcodesniffer standard=&quot;./coding_rules.xml&quot; format=&quot;full&quot;
+                showWarnings=&quot;true&quot;&gt;
+            &lt;fileset dir=&quot;.&quot;&gt;
+                &lt;patternset refid=&quot;<span class="highlight">files</span>&quot; /&gt;
+            &lt;/fileset&gt;
+        &lt;/phpcodesniffer&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Here we define a patternset and call it files</li>
+        <li>We include everything in our project directory that ends in php</li>
+        <li>
+            But exclude everything in third-party and any composer dependencies
+        </li>
+        <li>
+            The fileset used in phpcs references the patternset we defined above
+        </li>
+        <li>Very useful for this use case since you may want to run static</li>
+        <li>Most of the tools Germans write to say you're doing it wronng</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
