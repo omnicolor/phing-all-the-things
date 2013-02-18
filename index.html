@@ -345,11 +345,30 @@ Total time: 0.5619 seconds</span></pre>
 </section>
 
 <section class="slide properties-2">
-    <pre class="cli">
-    $ phing test -DphpunitFlag=--group=smoke
+    <pre class="cli">$ phing test -DphpunitFlag=--group=smoke
+<span class="notice">Buildfile: /Users/Omni/phing-example/build.xml
+ [property] Loading /Users/Omni/phing-example/build.properties</span>
+
+phing-example &gt; test:
+
+PHPUnit 3.7.13 by Sebastian Bergmann.
+
+Configuration read from /Users/Omni/phing-example/phpunit.xml
+
+........
+
+Time: 0 seconds, Memory: 7.25Mb
+
+<span class="invert-pass">OK (8 tests, 12 assertions)</span>
+
+<span class="pass">BUILD FINISHED
+
+Total time: 0.1058 seconds</span></pre>
     </pre>
     <ul class="note">
         <li>Another way is from the command line</li>
+        <li>Yeah, it's ugly</li>
+        <li>That's the Java heritage for you</li>
     </ul>
 </section>
 
