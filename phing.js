@@ -15,6 +15,8 @@ $(function() {
     $('#transition-themes').change(function() {
         $('#transition-theme-link').attr('href', $(this).val());
     });
+
+    prettyPrint();
 });
 
 
