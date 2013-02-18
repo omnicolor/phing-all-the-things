@@ -16,6 +16,11 @@ $(function() {
         $('#transition-theme-link').attr('href', $(this).val());
     });
 
+    $.extend(true, $.deck.defaults, {
+        hashPrefix: 'slide-',
+        preventFragmentScroll: true
+    });
+
     prettyPrint();
 });
 
