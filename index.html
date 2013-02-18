@@ -400,6 +400,38 @@ server1.url=www.example.lan</pre>
     </ul>
 </section>
 
+<section class="slide properties-4">
+    <div id="first">first</div>
+    <div id="things">things</div>
+    <div id="second">first</div>
+    <ul class="note">
+        <li>One thing that can easily trip you up</li>
+        <li>Properties are mostly immutable</li>
+        <li>There are a few exceptions to this run, and we'll get to those</li>
+    </ul>
+</section>
+
+<section class="slide properties-5">
+    <pre># build.properties
+foo=test
+bar=test</pre>
+    <pre class="prettyprint">    &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
+    &lt;property file=&quot;build.properties&quot; /&gt;
+    &lt;property name=&quot;mitz&quot; value=&quot;fah&quot; /&gt;
+    </pre>
+    <ul class="note">
+        <li>If you don't put your build.properties file first, it doesn't</li>
+        <li>
+            So in this case, you might think build.properties sets both to test
+        </li>
+        <li>But the foo property has already been set, so it is still 'bar'</li>
+        <li>While the mitz value is set to 'test'</li>
+        <li>This does let you control which variables can be overridden</li>
+        <li>If you set some before build.properties is included, they're set</li>
+        <li>Those set after it's included can be changed by the user</li>
+    </ul>
+</section>
+
 <section class="slide filesets-0">
     <img alt="Smelly feet" class="centered" src="images/cat-feet.jpg">
     <ul class="note">
