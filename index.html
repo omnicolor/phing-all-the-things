@@ -377,7 +377,9 @@ Total time: 0.1058 seconds</span></pre>
 docdir=/home/omni/Documents/coverage
 server1.user=oadams
 server1.url=www.example.lan</pre>
-    <pre class="prettyprint">    &lt;exec executable=&quot;${composer}" /&gt;
+    <pre class="prettyprint">
+    &lt;property file=&quot;build.properties&quot; /&gt;
+    &lt;exec executable=&quot;${composer}" /&gt;
     &lt;exec executable=&quot;ssh" passthru="true"&gt;
         &lt;arg value=&quot;-t&quot; /&gt;
         &lt;arg value=&quot;${server1.user}@${server1.url}&quot; /&gt;
