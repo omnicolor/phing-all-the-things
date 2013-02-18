@@ -295,7 +295,7 @@ Total time: 0.5619 seconds</span></pre>
 <section class="slide more-phpunit">
     <pre class="prettyprint">
     &lt;target name=&quot;test&quot;&gt;
-        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; <span class=&quot;highlight strike&quot;>checkreturn=&quot;true&quot;</span>&gt;
+        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
             <span class="highlight">&lt;arg value=&quot;--exclude-group=integration&quot; /&gt;</span>
         &lt;/exec&gt;
     &lt;/target&gt;
@@ -312,7 +312,7 @@ Total time: 0.5619 seconds</span></pre>
 <section class="slide even-more-phpunit">
     <pre class="prettyprint">
     &lt;target name=&quot;test&quot;&gt;
-        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; <span class=&quot;highlight strike&quot;>checkreturn=&quot;true&quot;</span>&gt;
+        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
             <span class="highlight">&lt;arg value=&quot;${phpunitFlag}&quot; /&gt;</span>
         &lt;/exec&gt;
     &lt;/target&gt;
