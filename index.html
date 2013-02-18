@@ -322,6 +322,36 @@ Total time: 0.5619 seconds</span></pre>
     </ul>
 </section>
 
+<section class="slide properties-0">
+    <img alt="Find X" src="images/findX.gif">
+    <ul class="note">
+        <li>Variables are called properties in Phing</li>
+        <li>There's a few ways of setting them</li>
+    </ul>
+</section>
+
+<section class="slide properties-1">
+    <pre class="prettyprint">
+    &lt;property name=&quot;phpunitFlag&quot; value=&quot;--group=smoke&quot; /&gt;
+    </pre>
+    <ul class="note">
+        <li>One way is with a property line in your build file</li>
+        <li>This is useful for setting paths to things</li>
+        <li>For example, you can default a path to a sane value</li>
+        <li>but allow other developers to easily override it if needed</li>
+        <li>We'll get into how a little later</li>
+    </ul>
+</section>
+
+<section class="slide properties-2">
+    <pre class="cli">
+    $ phing test -DphpunitFlag=--group=smoke
+    </pre>
+    <ul class="note">
+        <li>Another way is from the command line</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
