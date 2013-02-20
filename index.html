@@ -525,6 +525,26 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide apidoc-3">
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
+        &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
+        &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
+            <span class="highlight">&lt;arg value=&quot;--directory=.&quot; /&gt;</span>
+            &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
+            &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
+            &lt;arg value=&quot;--progressbar&quot; /&gt;
+            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            &lt;arg value=&quot;--title=API documentation&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Second, notice how we pass in arguments to our exec call</li>
+        <li>Everything in the arg value is actually quoted</li>
+        <li>The upshot of this is that you can have spaces</li>
+        <li>The downside &rarr;
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
