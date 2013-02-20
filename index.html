@@ -570,6 +570,19 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide arg-line">
+    <pre class="prettyprint">     &lt;exec executable=&quot;ps&quot; outputProperty=&quot;ps-output&quot;&gt;
+        &lt;arg line=&quot;x | grep selenium | grep -v grep | grep -v phing&quot; /&gt;
+    &lt;/exec&gt;</pre>
+    <ul class="note">
+        <li>
+            There's also arg line, which in this case is a bit easier to read
+        </li>
+        <li>With arg line you do have to quote any parameters with spaces</li>
+        <li>Also, note that you can't mix arg line and arg value</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
