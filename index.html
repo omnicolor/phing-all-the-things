@@ -500,6 +500,31 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide apidoc-2">
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
+        <span class="highlight">&lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;</span>
+        &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg value=&quot;--directory=.&quot; /&gt;
+            &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
+            &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
+            &lt;arg value=&quot;--progressbar&quot; /&gt;
+            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            &lt;arg value=&quot;--title=API documentation&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>First, note that you can do more than one thing in a target</li>
+        <li>
+            Here, we're building documentation after we create a new directory
+        </li>
+        <li>You can add any number of tasks to a build target</li>
+        <li>
+            But obviously, you should refactor your build like any other code
+        </li>
+        <li>and keep your targets short and easy to read and understand</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
