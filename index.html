@@ -545,6 +545,31 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide arg-value">
+    <pre class="prettyprint">    &lt;exec executable=&quot;ps&quot; outputProperty=&quot;ps-output&quot;&gt;
+        &lt;arg value=&quot;x&quot; /&gt;
+        &lt;arg value=&quot;|&quot; /&gt;
+        &lt;arg value=&quot;grep&quot; /&gt;
+        &lt;arg value=&quot;selenium&quot; /&gt;
+        &lt;arg value=&quot;|&quot; /&gt;
+        &lt;arg value=&quot;grep&quot; /&gt;
+        &lt;arg value=&quot;-v&quot; /&gt;
+        &lt;arg value=&quot;grep&quot; /&gt;
+        &lt;arg value=&quot;|&quot; /&gt;
+        &lt;arg value=&quot;grep&quot; /&gt;
+        &lt;arg value=&quot;-v&quot; /&gt;
+        &lt;arg value=&quot;phing&quot; /&gt;
+    &lt;/exec&gt;</pre>
+    <ul class="note">
+        <li>... is that if you want to string together a bunch of commands</li>
+        <li>it very rapidly looks pretty ugly</li>
+        <li>In case you're wondering,</li>
+        <li>snippet tries to check to see if selenium is running</li>
+        <li>and sets a property called ps-output</li>
+        <li>We'll get into that a bit more later as well</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
