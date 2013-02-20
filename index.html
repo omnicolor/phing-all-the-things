@@ -481,6 +481,30 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide apidoc-1">
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
+        &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
+        &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg value=&quot;--directory=.&quot; /&gt;
+            &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
+            &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
+            &lt;arg value=&quot;--progressbar&quot; /&gt;
+            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            &lt;arg value=&quot;--title=API documentation&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Again, there is a phpdocumentor2 task that does this natively</li>
+        <li>But I want to talk about a few things here</li>
+        <li>This is as good a task to use for some examples, right?</li>
+    </ul>
+</section>
+
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
