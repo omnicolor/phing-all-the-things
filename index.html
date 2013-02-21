@@ -378,8 +378,7 @@ Total time: 0.1058 seconds</span></pre>
 docdir=/home/omni/Documents/coverage
 server1.user=oadams
 server1.url=www.example.lan</pre>
-    <pre class="prettyprint">
-    &lt;property file=&quot;build.properties&quot; /&gt;
+    <pre class="prettyprint">    &lt;property file=&quot;build.properties&quot; /&gt;
     &lt;exec executable=&quot;${composer}" /&gt;
     &lt;exec executable=&quot;ssh" passthru="true"&gt;
         &lt;arg value=&quot;-t&quot; /&gt;
@@ -662,6 +661,31 @@ bar=test</pre>
         <li>
             But they can do logic and fail a build with a descriptive message
         </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;property name=&quot;foo&quot; value=&quot;foo&quot; /&gt;
+    &lt;target name=&quot;example&quot; depends=&quot;other-task&quot;&gt;
+        &lt;phingcall target=&quot;other-task&quot;&gt;
+            &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
+            &lt;property name=&quot;bar&quot; value=&quot;bar&quot; /&gt;
+        &lt;/phingcall&gt;
+        &lt;phingcall target=&quot;other-task&quot;&gt; /&gt;
+    &lt;/target&gt;
+    &lt;target name=&quot;other-task&quot;&gt;
+        &lt;echo message=&quot;${foo}&quot; /&gt;
+        &lt;echo message=&quot;${bar}&quot; /&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>The other way of calling another task is with phingcall</li>
+        <li>The difference between dependencies and phingcall is properties</li>
+        <li>If you call this example target it calls other task three times</li>
+        <li>The first time in the dependency, where bar is not set</li>
+        <li>Then it calls it with a property set inside, so bar will be set</li>
+        <li>Note that foo is not changed in the second call, properties...</li>
+        <li>When that call finishes, any of its properties are unset</li>
+        <li>So in the third call bar is also unset</li>
     </ul>
 </section>
 
