@@ -617,6 +617,52 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide dependencies-2">
+    <pre class="prettyprint">    &lt;target name=&quot;build&quot; depends=&quot;setup,test&quot; /&gt;
+
+    &lt;target name=&quot;coverage-html&quot; depends=&quot;require-docdir&quot;&gt;
+        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg value=&quot;--coverage-html=${docdir}/coverage&quot; /&gt;
+            &lt;arg value=&quot;${phpunitFlag}&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Here's two targets that depend on others</li>
+        <li>The first one, "build", doesn't do any work on its own</li>
+        <li>
+            The second depends on the require-docdir target, and then does work
+        </li>
+    </ul>
+</section>
+
+<section class="slide dependencies-3">
+    <pre class="prettyprint">     &lt;target name=&quot;require-docdir&quot;&gt;
+        &lt;if&gt;
+            &lt;not&gt;
+                &lt;isset property=&quot;docdir&quot; /&gt;
+            &lt;/not&gt;
+            &lt;then&gt;
+                &lt;fail message=&quot;docdir isn't set in your build.properties file&quot; /&gt;
+            &lt;/then&gt;
+        &lt;/if&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Here's that require-docdir target</li>
+        <li>
+            Basically, this is just checking to see if a property is defined
+        </li>
+        <li>
+            And it can either be defined anywhere variables normally get defined
+        </li>
+        <li>
+            But it does illustrate that you can have targets that don't do work
+        </li>
+        <li>
+            But they can do logic and fail a build with a descriptive message
+        </li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
