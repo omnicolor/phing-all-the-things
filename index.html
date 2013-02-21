@@ -47,7 +47,7 @@
     </ul>
 </section>
 
-<section class="slide lazy-development-0">
+<section class="slide">
     <h1>Lazy development</h1>
     <ul class="note">
         <li>I specialize in lazy development</li>
@@ -87,7 +87,7 @@
     </ul>
 </section>
 
-<section class="slide phpunit-0">
+<section class="slide">
     <pre class="prettyprint">
     &lt;?xml version="1.0" encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot;&gt;
@@ -107,7 +107,7 @@
     </ul>
 </section>
 
-<section class="slide phpunit-1">
+<section class="slide">
     <pre class="prettyprint">
     <span class="highlight">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
     &lt;project name=&quot;phing-the-things&quot;&gt;
@@ -124,7 +124,7 @@
     </ul>
 </section>
 
-<section class="slide phpunit-2">
+<section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     <span class="highlight">&lt;project name=&quot;phing-the-things&quot;&gt;</span>
@@ -139,7 +139,7 @@
     </ul>
 </section>
 
-<section class="slide phpunit-3">
+<section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot;&gt;
@@ -155,7 +155,7 @@
     </ul>
 </section>
 
-<section class="slide phpunit-4">
+<section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot;&gt;
@@ -175,7 +175,7 @@
     </ul>
 </section>
 
-<section class="slide phpunit-5">
+<section class="slide">
 <pre class="cli">$ phing test
 <span class="notice">Buildfile: /Users/Omni/phing-example/build.xml
  [property] Loading /Users/Omni/phing-example/build.properties</span>
@@ -201,7 +201,7 @@ Total time: 0.3155 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide phpunit-6">
+<section class="slide">
 <pre class="cli"><span class="invert-fail">F</span>.............................
 
 Time: 0 seconds, Memory: 7.25Mb
@@ -226,7 +226,7 @@ Total time: 0.5653 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide phpunit-7">
+<section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot;&gt;
@@ -242,7 +242,7 @@ Total time: 0.5653 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide phpunit-8">
+<section class="slide">
 <pre class="cli"><span class="invert-fail">F</span>.............................
 
 Time: 0 seconds, Memory: 7.25Mb
@@ -292,7 +292,7 @@ Total time: 0.5619 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide more-phpunit">
+<section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;test&quot;&gt;
         &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
@@ -309,7 +309,7 @@ Total time: 0.5619 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide even-more-phpunit">
+<section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;test&quot;&gt;
         &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
@@ -331,7 +331,7 @@ Total time: 0.5619 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide properties-1">
+<section class="slide">
     <pre class="prettyprint">
     &lt;property name=&quot;phpunitFlag&quot; value=&quot;--group=smoke&quot; /&gt;
     </pre>
@@ -344,7 +344,7 @@ Total time: 0.5619 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide properties-2">
+<section class="slide">
     <pre class="cli">$ phing test -DphpunitFlag=--group=smoke
 <span class="notice">Buildfile: /Users/Omni/phing-example/build.xml
  [property] Loading /Users/Omni/phing-example/build.properties</span>
@@ -371,7 +371,7 @@ Total time: 0.1058 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide properties-3">
+<section class="slide">
     <pre>composer=/opt/composer.phar
 docdir=/home/omni/Documents/coverage
 server1.user=oadams
@@ -410,7 +410,7 @@ server1.url=www.example.lan</pre>
     </ul>
 </section>
 
-<section class="slide properties-5">
+<section class="slide">
     <pre># build.properties
 foo=test
 bar=test</pre>
@@ -444,7 +444,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide filesets-1">
+<section class="slide">
     <pre class="prettyprint">
     &lt;patternset id=&quot;<span class="highlight">files</span>&quot;&gt;
         &lt;include name=&quot;**/*.php&quot; /&gt;
@@ -481,7 +481,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide apidoc-1">
+<section class="slide">
     <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
         &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
@@ -500,7 +500,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide apidoc-2">
+<section class="slide">
     <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
         <span class="highlight">&lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;</span>
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
@@ -525,7 +525,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide apidoc-3">
+<section class="slide">
     <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
         &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
@@ -570,7 +570,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide arg-line">
+<section class="slide">
     <pre class="prettyprint">     &lt;exec executable=&quot;ps&quot; outputProperty=&quot;ps-output&quot;&gt;
         &lt;arg line=&quot;x | grep selenium | grep -v grep | grep -v phing&quot; /&gt;
     &lt;/exec&gt;</pre>
@@ -617,7 +617,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide dependencies-2">
+<section class="slide">
     <pre class="prettyprint">    &lt;target name=&quot;build&quot; depends=&quot;setup,test&quot; /&gt;
 
     &lt;target name=&quot;coverage-html&quot; depends=&quot;require-docdir&quot;&gt;
@@ -635,7 +635,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide dependencies-3">
+<section class="slide">
     <pre class="prettyprint">     &lt;target name=&quot;require-docdir&quot;&gt;
         &lt;if&gt;
             &lt;not&gt;
