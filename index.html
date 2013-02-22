@@ -773,6 +773,51 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide composer">
+    <img alt="Composer logo" class="centered" src="images/composer.png">
+    <ul class="note">
+        <li>Anyone *not* using composer?</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    <span class="highlight">&lt;available property=&quot;composer-exists&quot; file=&quot;composer.phar&quot; /&gt;</span>
+    &lt;target name=&quot;get-composer&quot; unless=&quot;composer-exists&quot;&gt;
+        &lt;exec executable=&quot;curl&quot; output=&quot;composer.php&quot;&gt;
+            &lt;arg value=&quot;-sS&quot; /&gt;
+            &lt;arg value=&quot;https://getcomposer.org/installer&quot; /&gt;
+            &lt;arg value=&quot;|&quot; /&gt;
+            &lt;arg value=&quot;php&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;chmod file=&quot;composer.phar&quot; perm=&quot;664&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Here's a target that will download composer</li>
+        <li>but only if it hasn't already been downloaded</li>
+        <li>The available property looks for the file</li>
+        <li>and sets a composer-exists property if it exists</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;available property=&quot;composer-exists&quot; file=&quot;composer.phar&quot; /&gt;
+    &lt;target name=&quot;get-composer&quot; <span class="highlight">unless=&quot;composer-exists&quot;&gt;</span>
+        &lt;exec executable=&quot;curl&quot; output=&quot;composer.php&quot;&gt;
+            &lt;arg value=&quot;-sS&quot; /&gt;
+            &lt;arg value=&quot;https://getcomposer.org/installer&quot; /&gt;
+            &lt;arg value=&quot;|&quot; /&gt;
+            &lt;arg value=&quot;php&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;chmod file=&quot;composer.phar&quot; perm=&quot;664&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>The get-composer target checks the composer-exists property</li>
+        <li>to decide if it's going to run or not</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
