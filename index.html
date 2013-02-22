@@ -689,6 +689,90 @@ bar=test</pre>
     </ul>
 </section>
 
+<section class="slide lazy">
+    <img alt="Lazy cat" class="centered" src="images/lazy-cat.jpg">
+    <ul class="note">
+        <li>Any of y'all ever use Make to compile stuff?</li>
+        <li>One of the neat things about make is that it is lazy</li>
+        <li>It only recompiles a binary if one of its source files change</li>
+        <li>While in general PHP never compiles stuff,</li>
+        <li>There are exceptions</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;uptodate property=&quot;css-compiled&quot; targetfile=&quot;style.css&quot;&gt;
+        &lt;srcfiles dir=&quot;styles&quot; includes=&quot;**/*less&quot; /&gt;
+    &lt;/uptodate&gt;</pre>
+    <ul class="note">
+        <li>Phing uses the uptodate tag to do these conditional tasks</li>
+        <li>In this case, it's going to scan the &rarr; styles</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;uptodate property=&quot;css-compiled&quot; targetfile=&quot;style.css&quot;&gt;
+        &lt;srcfiles <span class="highlight">dir=&quot;styles&quot;</span> includes=&quot;**/*less&quot; /&gt;
+    &lt;/uptodate&gt;</pre>
+    <ul class="note">
+        <li>styles directory for any changed files</li>
+        <li>only looking for files &rarr; with a less</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;uptodate property=&quot;css-compiled&quot; targetfile=&quot;style.css&quot;&gt;
+        &lt;srcfiles dir=&quot;styles&quot; <span class="highlight">includes=&quot;**/*less&quot;</span> /&gt;
+    &lt;/uptodate&gt;</pre>
+    <ul class="note">
+        <li>extension</li>
+        <li>It will look at the modification time on those files</li>
+        <li>And compare the most recently modified timestamp</li>
+        <li>against &rarr; style.css</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;uptodate property=&quot;css-compiled&quot; <span class="highlight">targetfile=&quot;style.css&quot;</span>&gt;
+        &lt;srcfiles dir=&quot;styles&quot; includes=&quot;**/*less&quot; /&gt;
+    &lt;/uptodate&gt;</pre>
+    <ul class="note">
+        <li>style.css</li>
+        <li>If style.css is newer than all of the source files</li>
+        <li>it sets a &rarr; property</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;uptodate <span class="highlight">property=&quot;css-compiled&quot;</span> targetfile=&quot;style.css&quot;&gt;
+        &lt;srcfiles dir=&quot;styles&quot; includes=&quot;**/*less&quot; /&gt;
+    &lt;/uptodate&gt;</pre>
+    <ul class="note">
+        <li>property called css-compiled</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;uptodate property=&quot;css-compiled&quot; targetfile=&quot;style.css&quot;&gt;
+        &lt;srcfiles dir=&quot;styles&quot; includes=&quot;**/*less&quot; /&gt;
+    &lt;/uptodate&gt;
+    &lt;target name=&quot;compile-css&quot; <span class="highlight">unless=&quot;css-compiled&quot;</span>&gt;
+        &lt;exec executable=&quot;lessc&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
+            &lt;arg value=&quot;-x&quot; /&gt;
+            &lt;arg value=&quot;styles/*.less&quot; /&gt;
+            &lt;arg value=&quot;style.css&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Targets can use that property along with the unless attribute</li>
+        <li>to decide not to run</li>
+        <li>In this case, if you edit one of the less files</li>
+        <li>and run the compile-css target, it will run less on them</li>
+        <li>If we're up to date, it does nothing</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
