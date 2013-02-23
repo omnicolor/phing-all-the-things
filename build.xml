@@ -205,4 +205,22 @@
             <arg value="-d-" />
         </exec>
     </target>
+
+    <!-- Check Jenkins for project's build status -->
+    <property name="build-url"
+            value="https://jenkins/job/phing/lastBuild/api/json?pretty=true" />
+    <target name="require-green-build-check">
+        <exec executable="curl" outputProperty="build-status">
+            <arg line='--silent ${build-url} | grep result | cut -d" -f4' />
+        </exec>
+        <if>
+            <not>
+                <equals arg1="${build-status}" arg2="SUCCESS" />
+            </not>
+            <then>
+                <fail message="Jenkins build is broken" />
+            </then>
+        </if>
+    </target>
+
 </project>
