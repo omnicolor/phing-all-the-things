@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="phing-the-things" default="build">
+
+    <property name="foo" value="bar" />
+    <property file="build.properties" />
+    <property name="mitz" value="fah" />
+
+    <!-- Test shadowing properties with build.properties -->
+    <target name="properties-test">
+        <echo message="Foo: ${foo}" />
+        <echo message="Mitz: ${mitz}" />
+    </target>
+
+    <target name="test">
+        <exec executable="phpunit" passthru="true" checkreturn="true" />
+    </target>
+
+    <!-- Example showing syntax of using properties -->
+    <target name="properties-examples">
+        <exec executable="${composer}" />
+        <exec executable="ssh" passthru="true">
+            <arg value="-t" />
+            <arg value="${server1.user}@${server1.url}" />
+            <arg value="sudo /sbin/service httpd restart" />
+        </exec>
+    </target>
+
+    <!-- Example showing using a patternset -->
+    <patternset id="files">
+        <include name="**/*.php" />
+        <exclude name="third-party/**" />
+        <exclude name="vendor/**" />
+    </patternset>
+    <target name="phpcs">
+        <phpcodesniffer standard="./coding_rules.xml" format="full"
+            showWarnings="true">
+            <fileset dir=".">
+                <patternset refid="files" />
+            </fileset>
+        </phpcodesniffer>
+    </target>
+
+    <!-- Example showing a dependency -->
+    <target name="document" depends="require-docdir">
+        <mkdir dir="${docdir}/api" />
+        <exec executable="phpdoc" passthru="true">
+            <arg value="--directory=." />
+            <arg value="--ignore=vendor/*" />
+            <arg value="--ignore=src/*" />
+            <arg value="--progressbar" />
+            <arg value="--target=${docdir}/api" />
+            <arg value="--title=API documentation" />
+        </exec>
+    </target>
+
+    <!-- Example of how ugly lots of arg values are -->
+    <target name="selenium-running-value">
+        <exec executable="ps" outputProperty="ps-output">
+            <arg value="x" />
+            <arg value="|" />
+            <arg value="grep" />
+            <arg value="selenium" />
+            <arg value="|" />
+            <arg value="grep" />
+            <arg value="-v" />
+            <arg value="grep" />
+            <arg value="|" />
+            <arg value="grep" />
+            <arg value="-v" />
+            <arg value="phing" />
+        </exec>
+    </target>
+
+    <!-- Same thing as above using a single arg line -->
+    <target name="selenium-running-line">
+        <exec executable="ps" outputProperty="ps-output">
+            <arg line="x | grep selenium | grep -v grep | grep -v phing" />
+        </exec>
+    </target>
+
+    <target name="build" depends="test" />
+    <target name="coverage-html" depends="require-docdir">
+        <exec executable="phpunit" passthru="true">
+            <arg value="--coverage-html=${docdir}/coverage" />
+            <arg value="${phpunitFlag}" />
+        </exec>
+    </target>
+
+    <!-- Dependency example showing some logic -->
+    <target name="require-docdir">
+        <if>
+            <not>
+                <isset property="docdir" />
+            </not>
+            <then>
+                <fail message="docdir isn't set in your build.properties file" />
+            </then>
+        </if>
+    </target>
+
+    <!-- Example showing how dependencies work, specifically with properties -->
+    <target name="example" depends="other-task">
+        <phingcall target="other-task">
+            <property name="foo" value="test" />
+            <property name="baz" value="baz" />
+        </phingcall>
+        <phingcall target="other-task" />
+    </target>
+    <target name="other-task">
+        <echo message="${foo}" />
+        <echo message="${baz}" />
+    </target>
+
+    <!-- Up to date example -->
+    <uptodate property="css-compiled" targetfile="style.css">
+        <srcfiles dir="styles" includes="**/*less" />
+    </uptodate>
+    <target name="compile-css" unless="css-compiled">
+        <exec executable="lessc" passthru="true" checkreturn="true">
+            <arg value="-x" />
+            <arg value="styles/*.less" />
+            <arg value="style.css" />
+        </exec>
+    </target>
+
+    <!-- Available example -->
+    <available property="composer-exists" file="composer.phar" />
+    <target name="get-composer" unless="composer-exists">
+        <exec executable="curl" output="composer.php">
+            <arg value="-sS" />
+            <arg value="https://getcomposer.org/installer" />
+            <arg value="|" />
+            <arg value="php" />
+        </exec>
+        <chmod file="composer.phar" perm="664" />
+    </target>
+</project>
