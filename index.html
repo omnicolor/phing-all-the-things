@@ -478,15 +478,13 @@ bar=test</pre>
     &lt;/target&gt;</pre>
     <ul class="note">
         <li>Here we define a patternset and call it files</li>
-        <li>We include everything in our project directory that ends in php</li>
-        <li>
-            But exclude everything in third-party and any composer dependencies
-        </li>
-        <li>
-            The fileset used in phpcs references the patternset we defined above
-        </li>
-        <li>Very useful for this use case since you may want to run static</li>
-        <li>Most of the tools Germans write to say you're doing it wrong</li>
+        <li>include everything in our project directory that ends in php</li>
+        <li>exclude everything in 3rd-party and any composer...</li>
+        <li>The fileset used in phpcs references the patternset we defined</li>
+        <li>Very useful in this use case so you can run static...</li>
+        <li>Most of the tools Germans write to say you're doing it wrong...</li>
+        <li>This avoids running it on dependencies you don't maintain</li>
+        <li>since composer dependencies might all use a different style</li>
     </ul>
 </section>
 
