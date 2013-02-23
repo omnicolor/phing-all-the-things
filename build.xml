@@ -223,4 +223,21 @@
         </if>
     </target>
 
+    <target name="require-releaseType">
+        <if>
+            <not>
+                <isset property="releaseType" />
+            </not>
+            <then>
+                <fail message="You must pass in a releaseType: -DreleaseType=minor" />
+            </then>
+        </if>
+    </target>
+
+    <!-- Deploy! -->
+    <target name="deploy">
+        <phingcall target="require-releaseType" />
+        <phingcall target="require-green-build-check" />
+        <phingcall target="tag-version-no-file" />
+    </target>
 </project>

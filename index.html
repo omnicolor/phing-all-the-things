@@ -1178,6 +1178,25 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    &lt;target name=&quot;deploy&quot;&gt;
+        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+        &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Here's our deployment task so far</li>
+        <li>We require the user to pass in a releaseType</li>
+        <li>We require the build to be green</li>
+        <li>And we tag the new version</li>
+        <li>If I wasn't projecting this I would do it slightly differently</li>
+        <li>Both of the require calls would be a depends attribute</li>
+        <li>Instead of phingcalls, purely for aesthetic reasons</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
