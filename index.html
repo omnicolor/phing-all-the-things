@@ -1249,6 +1249,47 @@ phing-the-things $ git tag
     </li>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">    &lt;target name=&quot;upload&quot;&gt;
+        &lt;exec executable=&quot;scp&quot; checkreturn=&quot;true&quot;&gt;
+            &lt;arg value=&quot;build-${version}.tar.bz2&quot; /&gt;
+            &lt;arg value=&quot;${server}:/var/www/&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;exec executable=&quot;ssh&quot; checkreturn=&quot;true&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg value=&quot;${server}&quot; /&gt;
+            &lt;arg value=&quot;cd /var/www ; tar -xjf build-${version}.tar.bz2&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Next we have an upload target</li>
+        <li>These use scp to upload the tarball</li>
+        <li>and ssh to uncompress it</li>
+        <li>There are native SSH and scp tasks, but they require a pecl...</li>
+        <li>Note that you can use sudo over ssh if you need to</li>
+        <li>You'll want to add the -t argument</li>
+        <li>that forces SSH to use a pseudo-TTY so you can enter your pass</li>
+        <li>at this point, depending on your app, you can sanity check</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+    &lt;target name=&quot;deploy&quot;&gt;
+        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+        &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
+        &lt;phingcall target=&quot;prepare&quot; /&gt;
+        &lt;phingcall target=&quot;upload&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>We're almost there!</li>
+        <li>Now we just need to change our symlinks</li>
+        <li>At first you might be tempted to include this in the previous ssh</li>
+        <li>I prefer it as a different task to make rollbacks easy</li>
+    </li>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">

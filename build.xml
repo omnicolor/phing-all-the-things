@@ -253,4 +253,14 @@
                 includeemptydir="true" compression="bzip2" />
         <delete dir="build" />
     </target>
+
+    <!-- Upload and unzip the tarball -->
+    <target name="upload">
+        <exec executable="scp" checkreturn="true">
+            <arg value="build-${version}.tar.bz2" />
+            <arg value="${server}:/var/www/" />
+        </exec>
+        <exec executable="ssh" checkreturn="true" passthru="true">
+        </exec>
+    </target>
 </project>
