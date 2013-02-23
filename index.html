@@ -664,9 +664,11 @@ bar=test</pre>
     <ul class="note">
         <li>Here's two targets that depend on others</li>
         <li>The first one, "build", doesn't do any work on its own</li>
-        <li>
-            The second depends on the require-docdir target, and then does work
-        </li>
+        <li>The second depends on the require-docdir target</li>
+        <li>require-docdir gets run, and it if doesn't fail the build</li>
+        <li>Then phpunit is run</li>
+        <li>In this case, phpunit is building code coverage</li>
+        <li>and writing it where that docdir property tells it to</li>
     </ul>
 </section>
 
@@ -686,12 +688,9 @@ bar=test</pre>
         <li>
             Basically, this is just checking to see if a property is defined
         </li>
-        <li>
-            And it can either be defined anywhere variables normally get defined
-        </li>
-        <li>
-            But it does illustrate that you can have targets that don't do work
-        </li>
+        <li>it can be defined anywhere properties normally get defined</li>
+        <li>Either in a property tag or in your build.properties file</li>
+        <li>This illustrates that you can have targets that don't do work</li>
         <li>
             But they can do logic and fail a build with a descriptive message
         </li>
