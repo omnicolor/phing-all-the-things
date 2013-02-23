@@ -635,7 +635,7 @@ bar=test</pre>
 </section>
 
 <section class="slide">
-    <pre class="prettyprint">    &lt;target name=&quot;build&quot; depends=&quot;setup,test&quot; /&gt;
+    <pre class="prettyprint">    &lt;target name=&quot;build&quot; depends=&quot;test&quot; /&gt;
 
     &lt;target name=&quot;coverage-html&quot; depends=&quot;require-docdir&quot;&gt;
         &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot;&gt;
