@@ -1115,6 +1115,21 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">    &lt;target name=&quot;tag-svn&quot;&gt;
+        &lt;svncopy svnpath=&quot;${svnpath}&quot; username=&quot;${svnuser}&quot;
+            password=&quot;${svnpass}&quot; nocache=&quot;true&quot;
+            repositoryurl=&quot;svn://localhost/phing-the-things/trunk/&quot;
+            todir=&quot;svn://localhost/phing-the-things/tags/${version}&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>For you Subversive types, here's a similar command for tagging</li>
+        <li>Not quite as pretty as gittag</li>
+        <li>but most Subversion things aren't as pretty as git counterparts</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
