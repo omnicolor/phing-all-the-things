@@ -1231,6 +1231,24 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    &lt;target name=&quot;deploy&quot;&gt;
+        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+        &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
+        &lt;phingcall target=&quot;prepare&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Our updated deployment is starting to take shape</li>
+        <li>Already we've made deployments easier and more repeatable</li>
+        <li>Your prepare task might also concatenate and minimize</li>
+        <li>or compile things</li>
+        <li>Whatever you need</li>
+    </li>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
