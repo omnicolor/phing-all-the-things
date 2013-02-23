@@ -1197,6 +1197,40 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide prepare">
+    <img alt="Prepare yourself - Deployment is coming" class="centered"
+            src="images/prepare-yourself.jpg">
+    <ul class="note">
+        <li>Before we deploy, we're going to prepare a tarball</li>
+        <li>And instead of just using the current checkout</li>
+        <li>We'll get a clean clone and remove some stuff</li>
+        <li>There's no reason to upload your unit tests or git directories</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;target name=&quot;prepare&quot;&gt;
+        &lt;gitclone repository=&quot;git://gitserver/repos/phing-the-things.git&quot;
+                targetPath=&quot;build&quot; /&gt;
+        &lt;gitcheckout repository=&quot;build&quot; branchname=&quot;${version}&quot; quiet=&quot;true&quot; /&gt;
+        &lt;delete dir=&quot;build/tests&quot; /&gt;
+        &lt;delete file=&quot;build/build.xml&quot; /&gt;
+        &lt;tar destfile=&quot;build-${version}.tar.bz2&quot; basedir=&quot;build&quot;
+                includeemptydir=&quot;true&quot; compression=&quot;bzip2&quot; /&gt;
+        &lt;delete dir=&quot;build&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Here's a prepare target</li>
+        <li>We're going to grab the clean clone first</li>
+        <li>This makes sure that we don't deploy any in progress code</li>
+        <li>We change over to our newly created tag</li>
+        <li>We delete the tests directory and the build file</li>
+        <li>Then we tar and compress it</li>
+        <li>Finally we delete the build directory</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">

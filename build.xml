@@ -240,4 +240,17 @@
         <phingcall target="require-green-build-check" />
         <phingcall target="tag-version-no-file" />
     </target>
+
+    <!-- Prepare a tarball -->
+    <target name="prepare">
+        <gitclone repository="git://gitserver/repos/phing-the-things.git"
+                targetPath="build" />
+        <gitcheckout repository="build" branchname="${version}" quiet="true" />
+        <delete dir="build/tests" />
+        <delete file="build/build.xml" />
+        <delete dir="build/.git" />
+        <tar destfile="build-${version}.tar.bz2" basedir="build"
+                includeemptydir="true" compression="bzip2" />
+        <delete dir="build" />
+    </target>
 </project>
