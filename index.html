@@ -840,6 +840,39 @@ bar=test</pre>
     <div class="centered cover"></div>
     <ul class="note">
         <li>Finally, let's talk about deploying software to a server</li>
+        <li>We're going to do this in a relatively platform-agnostic way</li>
+        <li>So no RPMs or debs</li>
+        <li>If your server system is sane, this should work</li>
+        <li>If you're on Windows, I can't really help</li>
+    </ul>
+</section>
+
+<section class="slide assumptions">
+    <div class="centered"><span class="ass">ass</span>umptions</div>
+    <ul class="note">
+        <li>First, some assumptions</li>
+        <li>so we don't make asses of ourselves</li>
+        <li>We want to do most deploys with no downtime</li>
+        <li>We want to be able to rollback quickly</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <div class="link"></div>
+    <ul class="note">
+        <li>To do that, we'll use symlinks</li>
+        <li>so Apache needs to be set up to follow them</li>
+    </ul>
+</section>
+
+<section class="slide security">
+    <img alt="Paranoia" class="centered" src="images/security.jpg">
+    <ul class="note">
+        <li>You want to be secure, so I'll use scp</li>
+        <li>I'm going to assume that you've got SSH keys set up</li>
+        <li>And if you're suitable lazy, a good SSH config file</li>
+        <li>If you're still typing your password to log in</li>
+        <li>You're doing it wrong</li>
     </ul>
 </section>
 
