@@ -1130,6 +1130,31 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    &lt;target name=&quot;tag-version-no-file&quot;&gt;
+        &lt;exec executable=&quot;git&quot; outputProperty=&quot;latest-version&quot;&gt;
+            &lt;arg line=&quot;describe --tags | cut -f1 -d-&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;echo file=&quot;version.txt&quot;&gt;${latest-version}&lt;/echo&gt;
+        &lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
+        &lt;delete file=&quot;version.txt&quot; /&gt;
+        &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
+                    message=&quot;Tagged version ${version}&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Back to git</li>
+        <li>Let's say you wanted to be able to use the version task</li>
+        <li>But don't want that pesky file hanging out</li>
+        <li>This asks git for the most recent tag</li>
+        <li>Stores it in version.txt</li>
+        <li>Increments the version, deletes the file, and then tags git</li>
+        <li>This is really just an example of the complex behavior</li>
+        <li>from a few simple primatives</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">

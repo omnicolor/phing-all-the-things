@@ -193,4 +193,16 @@
             <property name="releaseType" value="bugfix" />
         </phingcall>
     </target>
+
+    <!-- Figure out the latest tag -->
+    <target name="tag-latest">
+        <exec executable="git" outputProperty="latest-version">
+            <arg value="describe" />
+            <arg value="--tags" />
+            <arg value="|" />
+            <arg value="cut" />
+            <arg value="-f1" />
+            <arg value="-d-" />
+        </exec>
+    </target>
 </project>
