@@ -90,7 +90,7 @@
 <section class="slide">
     <pre class="prettyprint">
     &lt;?xml version="1.0" encoding=&quot;UTF-8&quot;?&gt;
-    &lt;project name=&quot;phing-the-things&quot;&gt;
+    &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         &lt;/target&gt;
@@ -110,7 +110,7 @@
 <section class="slide">
     <pre class="prettyprint">
     <span class="highlight">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-    &lt;project name=&quot;phing-the-things&quot;&gt;
+    &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         &lt;/target&gt;
@@ -127,7 +127,7 @@
 <section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-    <span class="highlight">&lt;project name=&quot;phing-the-things&quot;&gt;</span>
+    <span class="highlight">&lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;</span>
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         &lt;/target&gt;
@@ -142,7 +142,7 @@
 <section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-    &lt;project name=&quot;phing-the-things&quot;&gt;
+    &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         <span class="highlight">&lt;target name=&quot;test&quot;&gt;</span>
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         <span class="highlight">&lt;/target&gt;</span>
@@ -158,7 +158,7 @@
 <section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-    &lt;project name=&quot;phing-the-things&quot;&gt;
+    &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
             <span class="highlight">&lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;</span>
         &lt;/target&gt;
@@ -227,9 +227,24 @@ Total time: 0.5653 seconds</span></pre>
 </section>
 
 <section class="slide">
+    <pre class="prettyprint">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+    &lt;project name=&quot;phing-the-things&quot; <span class="highlight">default=&quot;test&quot;</span>&gt;
+        &lt;target name=&quot;test&quot;&gt;
+            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+        &lt;/target&gt;
+    &lt;/project&gt;</pre>
+    <ul class="note">
+        <li>Note that there's a default attribute on your project</li>
+        <li>If you just run phing from the command line</li>
+        <li>without any arguments, this is what it will run</li>
+        <li>I never do this, but phing will complain if default isn't set</li>
+    </ul>
+</section>
+
+<section class="slide">
     <pre class="prettyprint">
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-    &lt;project name=&quot;phing-the-things&quot;&gt;
+    &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" <span class="highlight strike">checkreturn="true"</span> /&gt;
         &lt;/target&gt;
