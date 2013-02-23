@@ -1155,6 +1155,29 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">    &lt;property name=&quot;build-url&quot;
+            value=&quot;https://jenkins/job/phing/lastBuild/api/json?pretty=true&quot; /&gt;
+    &lt;target name=&quot;require-green-build-check&quot;&gt;
+        &lt;exec executable=&quot;curl&quot; outputProperty=&quot;build-status&quot;&gt;
+            &lt;arg line='--silent ${build-url} | grep result | cut -d&quot; -f4' /&gt;
+        &lt;/exec&gt;
+        &lt;if&gt;
+            &lt;not&gt;&lt;equals arg1=&quot;${build-status}&quot; arg2=&quot;SUCCESS&quot; /&gt;&lt;/not&gt;
+            &lt;then&gt;&lt;fail message=&quot;Jenkins build is broken&quot; /&gt;&lt;/then&gt;
+        &lt;/if&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Here's a fun dependency for your release process</li>
+        <li>This uses curl to ask Jenkins if your build is broken</li>
+        <li>Broken builds mean you definitely shouldn't release</li>
+        <li>And this fails your phing task</li>
+        <li>It does some simple command line parsing of the status JSON</li>
+        <li>You could do more there, like output the name of who broke it</li>
+        <li>Nothing changes the behavior of carbon-based meat popsicles...</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
