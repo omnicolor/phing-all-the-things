@@ -134,4 +134,28 @@
         </exec>
         <chmod file="composer.phar" perm="664" />
     </target>
+
+    <!-- Tag the git repository with a version -->
+    <target name="tag" depends="require-version">
+        <gittag annotate="true" name="${version}" repository="."
+                message="Tagged version ${version}" />
+        <gitpush repository="." tags="true" quiet="true" />
+    </target>
+
+    <target name="require-version">
+        <if>
+            <not>
+                <isset property="version" />
+            </not>
+            <then>
+                <fail message="You must pass in a version: -Dversion=1.2.3" />
+            </then>
+        </if>
+    </target>
+
+    <!-- Tagging without requiring a version -->
+    <target name="tag-no-version">
+        <gittag annotate="true" name="${version}" repository="."
+                message="Tagged version ${version}" />
+    </target>
 </project>

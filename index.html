@@ -873,6 +873,7 @@ bar=test</pre>
         <li>so we don't make asses of ourselves</li>
         <li>We want to do most deploys with no downtime</li>
         <li>We want to be able to rollback quickly</li>
+        <li>We're using git for version control</li>
     </ul>
 </section>
 
@@ -892,6 +893,76 @@ bar=test</pre>
         <li>And if you're suitable lazy, a good SSH config file</li>
         <li>If you're still typing your password to log in</li>
         <li>You're doing it wrong</li>
+    </ul>
+</section>
+
+<section class="slide tag">
+    <img alt="Tags" class="centered" src="images/tag.jpg">
+    <ul class="note">
+        <li>We like to tag our releases with a version number</li>
+        <li>I'll show you two different ways of tagging a git repo</li>
+        <li>The first is a bit manual</li>
+        <li>The second is more automatic but has its own problems</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;target name=&quot;tag&quot; depends=&quot;require-version&quot;&gt;
+        &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
+                message=&quot;Tagged version ${version}&quot; /&gt;
+        &lt;gitpush repository=&quot;.&quot; tags=&quot;true&quot; quiet=&quot;true&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>require-version here is similiar to the require-docdir task</li>
+        <li>Assuming you install phing with VersionControl_Git depend...</li>
+        <li>This will tag the repository with the git tag you specify</li>
+        <li>And push it up to your remote repository</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="cli">phing-the-things $ phing tag
+<span class="notice">Buildfile: /Users/Omni/Sites/phing/build.xml
+ [property] Loading /Users/Omni/Sites/phing/build.properties</span>
+
+<span class="pass">phing-the-things &gt; require-version:</span>
+
+       <span class="fail">[if] Error in IfTask
+Execution of target &quot;require-version&quot; failed for the following reason: /Users/Omni/Sites/phing/build.xml:146:12: /Users/Omni/Sites/phing/build.xml:150:18: You must pass in a version: -Dversion=1.2.3
+
+BUILD FAILED
+/Users/Omni/Sites/phing/build.xml:146:12: /Users/Omni/Sites/phing/build.xml:150:18: You must pass in a version: -Dversion=1.2.3
+Total time: 1.5921 second</span>
+    </pre>
+    <ul class="note">
+        <li>Here's what you might see if you don't include the version</li>
+        <li>You can see the build failed, and there's a message</li>
+        <li>Saying that you must include the version parameter</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="cli">phing-the-things $ phing tag-no-version
+<span class="info">Buildfile: /Users/Omni/Sites/phing/build.xml
+ [property] Loading /Users/Omni/Sites/phing/build.properties</span>
+
+<span class="pass">phing-the-things &gt; tag-no-version:</span>
+
+   <span class="notice">[gittag] git-tag command: /usr/bin/git tag -a -m'Tagged version ${version}' '${version}'
+   [gittag] git-tag: tags for &quot;.&quot; repository
+   [gittag] git-tag output:</span>
+
+<span class="pass">BUILD FINISHED
+
+Total time: 0.2039 seconds</span>
+
+phing-the-things $ git tag
+${version}</pre>
+    <ul class="note">
+        <li>I feel like this is much better than tagging with garbage</li>
+        <li>Here's what happens if you tag without passing in a version</li>
+        <li>And you don't check to see if version is passed in</li>
     </ul>
 </section>
 
