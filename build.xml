@@ -158,4 +158,39 @@
         <gittag annotate="true" name="${version}" repository="."
                 message="Tagged version ${version}" />
     </target>
+
+    <!-- Tag a version using version file -->
+    <target name="tag-version">
+        <version releasetype="${releaseType}" file="version.txt"
+            property="version" />
+        <exec executable="git" passthru="true">
+            <arg value="add" />
+            <arg value="version.txt" />
+        </exec>
+        <exec executable="git" passthru="true">
+            <arg value="commit" />
+            <arg value="-m" />
+            <arg value="Updated version file to ${version}" />
+        </exec>
+        <gittag annotate="true" name="${version}" repository="."
+                message="Tagged version ${version}" />
+    </target>
+
+    <target name="release-major">
+        <phingcall target="tag-version">
+            <property name="releaseType" value="major" />
+        </phingcall>
+    </target>
+
+    <target name="release-minor">
+        <phingcall target="tag-version">
+            <property name="releaseType" value="minor" />
+        </phingcall>
+    </target>
+
+    <target name="release-patch">
+        <phingcall target="tag-version">
+            <property name="releaseType" value="bugfix" />
+        </phingcall>
+    </target>
 </project>

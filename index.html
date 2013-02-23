@@ -918,6 +918,8 @@ bar=test</pre>
         <li>Assuming you install phing with VersionControl_Git depend...</li>
         <li>This will tag the repository with the git tag you specify</li>
         <li>And push it up to your remote repository</li>
+        <li>You can use whatever you want for version here</li>
+        <li>like 1.2.3 or 'Return of the Jedi', it doesn't matter</li>
     </ul>
 </section>
 
@@ -962,6 +964,154 @@ ${version}</pre>
         <li>I feel like this is much better than tagging with garbage</li>
         <li>Here's what happens if you tag without passing in a version</li>
         <li>And you don't check to see if version is passed in</li>
+        <li>It doesn't fail, but it does put in a garbage tag</li>
+    </ul>
+</section>
+
+<section class="slide version">
+    <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
+        <span class="highlight">&lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;</span>
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;add version.txt&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;commit -m 'Updated version file to ${version}'&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
+                message=&quot;Tagged version ${version}&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Phing supports automagic incrementing versions</li>
+        <li>with the version tag</li>
+        <li>The version tag takes three attributes</li>
+        <li>The first is &rarr; releasetype</li>
+    </ul>
+</section>
+
+<section class="slide version">
+    <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
+        &lt;version <span class="highlight">releasetype=&quot;${releaseType}&quot;</span> file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;add version.txt&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;commit -m 'Updated version file to ${version}'&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
+                message=&quot;Tagged version ${version}&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>release type</li>
+        <li>This can be Major, Minor, or BugFix</li>
+    </ul>
+</section>
+
+<section class="slide version">
+    <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
+        &lt;version releasetype=&quot;${releaseType}&quot; <span class="highlight">file=&quot;version.txt&quot;</span> property=&quot;version&quot; /&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;add version.txt&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;commit -m 'Updated version file to ${version}'&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
+                message=&quot;Tagged version ${version}&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>The file attribute names a file that holds the current version</li>
+        <li>The version number must be in major dot minor dot patchlevel</li>
+        <li>The file either needs to be in your source control</li>
+        <li>and thus updated every release</li>
+        <li>or ignored and then you can get out of sync really easy</li>
+    </ul>
+</section>
+
+<section class="slide version">
+    <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
+        &lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; <span class="highlight">property=&quot;version&quot;</span> /&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;add version.txt&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;commit -m 'Updated version file to ${version}'&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
+                message=&quot;Tagged version ${version}&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Finally, there's the property attribute</li>
+        <li>The version that gets incremented is stored in this property</li>
+        <li>You can then use it for whatever you want</li>
+    </ul>
+</section>
+
+<section class="slide version">
+    <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
+        &lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;add version.txt&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg line=&quot;commit -m 'Updated version file to ${version}'&quot; /&gt;
+        &lt;/exec&gt;
+        &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
+                message=&quot;Tagged version ${version}&quot; /&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>After the version file gets updated, we stage it and commit it</li>
+        <li>Then tag our repository</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="cli">phing-the-things $ phing tag-version -DreleaseType=minor
+<span class="notice">Buildfile: /Users/Omni/Sites/phing/build.xml
+ [property] Loading /Users/Omni/Sites/phing/build.properties</span>
+
+<span class="pass">phing-the-things &gt; tag-version:</span>
+
+[master 4b48e9f] Updated version file to 0.1.0
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+   <span class="notice">[gittag] git-tag command: /usr/bin/git tag -a -m'Tagged version 0.1.0' '0.1.0'
+   [gittag] git-tag: tags for "." repository
+   [gittag] git-tag output:</span>
+
+<span class="pass">BUILD FINISHED
+
+Total time: 0.3507 seconds</span>
+
+phing-the-things $ git tag
+0.0.1
+0.1.0</pre>
+    <ul class="note">
+        <li>Here's what the output might look like</li>
+        <li>I'm updating the minor version from 0.0.1</li>
+        <li>Phing figures out that the next minor version is 0.1.0</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;target name=&quot;release-major&quot;&gt;
+        &lt;phingcall target=&quot;tag-version&quot;&gt;
+            &lt;property name=&quot;releaseType&quot; value=&quot;major&quot; /&gt;
+        &lt;/phingcall&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;release-minor&quot;&gt;
+        &lt;phingcall target=&quot;tag-version&quot;&gt;
+            &lt;property name=&quot;releaseType&quot; value=&quot;minor&quot; /&gt;
+        &lt;/phingcall&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>If you don't want to pass things in on the command line</li>
+        <li>setting up full targets to do these sorts of things is easy</li>
+        <li>But I'm going to stick with command line arguments</li>
     </ul>
 </section>
 
