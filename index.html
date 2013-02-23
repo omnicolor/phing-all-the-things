@@ -556,7 +556,26 @@ bar=test</pre>
         <li>Second, notice how we pass in arguments to our exec call</li>
         <li>Everything in the arg value is actually quoted</li>
         <li>The upshot of this is that you can have spaces</li>
-        <li>The downside &rarr;
+        <li>For example &rarr; you don't need</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
+        &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
+        &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg value=&quot;--directory=.&quot; /&gt;
+            &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
+            &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
+            &lt;arg value=&quot;--progressbar&quot; /&gt;
+            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            <span class="highlight">&lt;arg value=&quot;--title=API documentation&quot; /&gt;</span>
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>you don't need to do anything special for the title here</li>
+        <li>It just works</li>
+        <li>The downside &rarr; is that</li>
     </ul>
 </section>
 
@@ -577,7 +596,7 @@ bar=test</pre>
     &lt;/exec&gt;</pre>
     <ul class="note">
         <li>... is that if you want to string together a bunch of commands</li>
-        <li>it very rapidly looks pretty ugly</li>
+        <li>it very rapidly looks ugly</li>
         <li>In case you're wondering,</li>
         <li>snippet tries to check to see if selenium is running</li>
         <li>and sets a property called ps-output</li>
@@ -595,6 +614,7 @@ bar=test</pre>
         </li>
         <li>With arg line you do have to quote any parameters with spaces</li>
         <li>Also, note that you can't mix arg line and arg value</li>
+        <li>unlike crossing &rarr; the streams
     </ul>
 </section>
 
@@ -602,7 +622,7 @@ bar=test</pre>
     <img alt="Don't cross the streams" class="centered"
         src="images/cross-the-streams.jpg">
     <ul class="note">
-        <li>Unlike crossing the streams, which is bad unless it's good</li>
+        <li>the streams ... which is bad unless it's good</li>
         <li>mixing arg line and arg value just doesn't work</li>
     </ul>
 </section>
