@@ -388,18 +388,19 @@ Total time: 0.1058 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide property-example">
     <pre>composer=/opt/composer.phar
-docdir=/home/omni/Documents/coverage
 server1.user=oadams
 server1.url=www.example.lan</pre>
     <pre class="prettyprint">    &lt;property file=&quot;build.properties&quot; /&gt;
-    &lt;exec executable=&quot;${composer}" /&gt;
-    &lt;exec executable=&quot;ssh" passthru="true"&gt;
-        &lt;arg value=&quot;-t&quot; /&gt;
-        &lt;arg value=&quot;${server1.user}@${server1.url}&quot; /&gt;
-        &lt;arg value=&quot;sudo /sbin/service httpd restart&quot; /&gt;
-    &lt;/exec&gt;</pre>
+    &lt;target name=&quot;properties-example&quot;&gt;
+        &lt;exec executable=&quot;${composer}" /&gt;
+        &lt;exec executable=&quot;ssh" passthru="true"&gt;
+            &lt;arg value=&quot;-t&quot; /&gt;
+            &lt;arg value=&quot;${server1.user}@${server1.url}&quot; /&gt;
+            &lt;arg value=&quot;sudo /sbin/service httpd restart&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Another way of setting properties is build.properties</li>
         <li>Simple name equals value text file</li>
