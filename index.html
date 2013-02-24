@@ -94,8 +94,7 @@
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         &lt;/target&gt;
-    &lt;/project&gt;
-    </pre>
+    &lt;/project&gt;</pre>
     <ul class="note">
         <li>Here's a really simple build.xml file</li>
         <li>Your most basic phing building block is the target</li>
@@ -114,8 +113,7 @@
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         &lt;/target&gt;
-    &lt;/project&gt;
-    </pre>
+    &lt;/project&gt;</pre>
     <ul class="note">
         <li>First, we have the standard XML stuff</li>
         <li>phing is all enterprisey and uses XML</li>
@@ -131,8 +129,7 @@
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         &lt;/target&gt;
-    <span class="highlight">&lt;/project&gt;</span>
-    </pre>
+    <span class="highlight">&lt;/project&gt;</span></pre>
     <ul class="note">
         <li>And you have the project tags that surround your tasks</li>
         <li>I'll leave these out of the future slides</li>
@@ -146,8 +143,7 @@
         <span class="highlight">&lt;target name=&quot;test&quot;&gt;</span>
             &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
         <span class="highlight">&lt;/target&gt;</span>
-    &lt;/project&gt;
-    </pre>
+    &lt;/project&gt;</pre>
     <ul class="note">
         <li>Then the actual target tag</li>
         <li>We'll cover this more in depth as well later</li>
@@ -162,8 +158,7 @@
         &lt;target name=&quot;test&quot;&gt;
             <span class="highlight">&lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;</span>
         &lt;/target&gt;
-    &lt;/project&gt;
-    </pre>
+    &lt;/project&gt;</pre>
     <ul class="note">
         <li>Finally, the exec tag that actually does the work</li>
         <li>This is called a task in phing terminology</li>
@@ -248,8 +243,7 @@ Total time: 0.5653 seconds</span></pre>
         &lt;target name=&quot;test&quot;&gt;
             &lt;exec executable="phpunit" passthru="true" <span class="highlight strike">checkreturn="true"</span> /&gt;
         &lt;/target&gt;
-    &lt;/project&gt;
-    </pre>
+    &lt;/project&gt;</pre>
     <ul class="note">
         <li>Remember that checkreturn attribute earlier?</li>
         <li>Here's what happens if you leave it off</li>
@@ -315,8 +309,7 @@ Total time: 0.5619 seconds</span></pre>
         &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
             <span class="highlight">&lt;arg value=&quot;--exclude-group=integration&quot; /&gt;</span>
         &lt;/exec&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>One argument I like to be able to include</li>
         <li>exclude-group (or include-group)</li>
@@ -332,8 +325,7 @@ Total time: 0.5619 seconds</span></pre>
         &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
             <span class="highlight">&lt;arg value=&quot;${phpunitFlag}&quot; /&gt;</span>
         &lt;/exec&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Another that's pretty helpful is a flag</li>
         <li>This lets you modify phpunit behavior while running phing</li>
@@ -350,8 +342,7 @@ Total time: 0.5619 seconds</span></pre>
 
 <section class="slide">
     <pre class="prettyprint">
-    &lt;property name=&quot;phpunitFlag&quot; value=&quot;--group=smoke&quot; /&gt;
-    </pre>
+    &lt;property name=&quot;phpunitFlag&quot; value=&quot;--group=smoke&quot; /&gt;</pre>
     <ul class="note">
         <li>One way is with a property line in your build file</li>
         <li>This is useful for setting paths to things</li>
@@ -433,8 +424,7 @@ foo=test
 bar=test</pre>
     <pre class="prettyprint">    &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
     &lt;property file=&quot;build.properties&quot; /&gt;
-    &lt;property name=&quot;mitz&quot; value=&quot;fah&quot; /&gt;
-    </pre>
+    &lt;property name=&quot;mitz&quot; value=&quot;fah&quot; /&gt;</pre>
     <ul class="note">
         <li>If you don't put your build.properties file first, it doesn't</li>
         <li>
@@ -798,8 +788,7 @@ bar=test</pre>
             &lt;arg value=&quot;styles/*.less&quot; /&gt;
             &lt;arg value=&quot;style.css&quot; /&gt;
         &lt;/exec&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Targets can use that property along with the unless attribute</li>
         <li>to decide not to run</li>
@@ -826,8 +815,7 @@ bar=test</pre>
             &lt;arg value=&quot;php&quot; /&gt;
         &lt;/exec&gt;
         &lt;chmod file=&quot;composer.phar&quot; perm=&quot;664&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Here's a target that will download composer</li>
         <li>but only if it hasn't already been downloaded</li>
@@ -846,8 +834,7 @@ bar=test</pre>
             &lt;arg value=&quot;php&quot; /&gt;
         &lt;/exec&gt;
         &lt;chmod file=&quot;composer.phar&quot; perm=&quot;664&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>The get-composer target checks the composer-exists property</li>
         <li>to decide if it's going to run or not</li>
@@ -911,8 +898,7 @@ bar=test</pre>
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                 message=&quot;Tagged version ${version}&quot; /&gt;
         &lt;gitpush repository=&quot;.&quot; tags=&quot;true&quot; quiet=&quot;true&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>require-version here is similiar to the require-docdir task</li>
         <li>Assuming you install phing with VersionControl_Git depend...</li>
@@ -934,8 +920,7 @@ bar=test</pre>
 Execution of target &quot;require-version&quot; failed for the following reason: /Users/Omni/Sites/phing/build.xml:146:12: /Users/Omni/Sites/phing/build.xml:150:18: You must pass in a version: -Dversion=1.2.3
 BUILD FAILED
 /Users/Omni/Sites/phing/build.xml:146:12: /Users/Omni/Sites/phing/build.xml:150:18: You must pass in a version: -Dversion=1.2.3
-Total time: 1.5921 second</span>
-    </pre>
+Total time: 1.5921 second</span></pre>
     <ul class="note">
         <li>Here's what you might see if you don't include the version</li>
         <li>You can see the build failed, and there's a message</li>
@@ -979,8 +964,7 @@ ${version}</pre>
         &lt;/exec&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                 message=&quot;Tagged version ${version}&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Phing supports automagic incrementing versions</li>
         <li>with the version tag</li>
@@ -1000,8 +984,7 @@ ${version}</pre>
         &lt;/exec&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                 message=&quot;Tagged version ${version}&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>release type</li>
         <li>This can be Major, Minor, or BugFix</li>
@@ -1019,8 +1002,7 @@ ${version}</pre>
         &lt;/exec&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                 message=&quot;Tagged version ${version}&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>The file attribute names a file that holds the current version</li>
         <li>The version number must be in major dot minor dot patchlevel</li>
@@ -1041,8 +1023,7 @@ ${version}</pre>
         &lt;/exec&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                 message=&quot;Tagged version ${version}&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Finally, there's the property attribute</li>
         <li>The version that gets incremented is stored in this property</li>
@@ -1061,8 +1042,7 @@ ${version}</pre>
         &lt;/exec&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                 message=&quot;Tagged version ${version}&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>After the version file gets updated, we stage it and commit it</li>
         <li>Then tag our repository</li>
@@ -1121,8 +1101,7 @@ phing-the-things $ git tag
             password=&quot;${svnpass}&quot; nocache=&quot;true&quot;
             repositoryurl=&quot;svn://localhost/phing-the-things/trunk/&quot;
             todir=&quot;svn://localhost/phing-the-things/tags/${version}&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>For you Subversive types, here's a similar command for tagging</li>
         <li>Not quite as pretty as gittag</li>
@@ -1141,8 +1120,7 @@ phing-the-things $ git tag
         &lt;delete file=&quot;version.txt&quot; /&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                     message=&quot;Tagged version ${version}&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Back to git</li>
         <li>Let's say you wanted to be able to use the version task</li>
@@ -1184,8 +1162,7 @@ phing-the-things $ git tag
         &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
         &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
         &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Here's our deployment task so far</li>
         <li>We require the user to pass in a releaseType</li>
@@ -1218,8 +1195,7 @@ phing-the-things $ git tag
         &lt;tar destfile=&quot;build-${version}.tar.bz2&quot; basedir=&quot;build&quot;
                 includeemptydir=&quot;true&quot; compression=&quot;bzip2&quot; /&gt;
         &lt;delete dir=&quot;build&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Here's a prepare target</li>
         <li>We're going to grab the clean clone first</li>
@@ -1238,8 +1214,7 @@ phing-the-things $ git tag
         &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
         &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
         &lt;phingcall target=&quot;prepare&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>Our updated deployment is starting to take shape</li>
         <li>Already we've made deployments easier and more repeatable</li>
@@ -1280,8 +1255,7 @@ phing-the-things $ git tag
         &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
         &lt;phingcall target=&quot;prepare&quot; /&gt;
         &lt;phingcall target=&quot;upload&quot; /&gt;
-    &lt;/target&gt;
-    </pre>
+    &lt;/target&gt;</pre>
     <ul class="note">
         <li>We're almost there!</li>
         <li>Now we just need to change our symlinks</li>
