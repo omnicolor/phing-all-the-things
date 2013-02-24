@@ -379,8 +379,8 @@ Total time: 0.1058 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide property-example">
-    <pre>composer=/opt/composer.phar
+<section class="slide">
+    <pre class="no-bottom">composer=/opt/composer.phar
 server1.user=oadams
 server1.url=www.example.lan</pre>
     <pre class="prettyprint">    &lt;property file=&quot;build.properties&quot; /&gt;
@@ -688,7 +688,7 @@ bar=test</pre>
 </section>
 
 <section class="slide">
-    <pre class="prettyprint">    &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
+    <pre class="prettyprint no-bottom">    &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
     &lt;target name=&quot;example&quot; depends=&quot;other-task&quot;&gt;
         &lt;phingcall target=&quot;other-task&quot;&gt;
             &lt;property name=&quot;foo&quot; value=&quot;test&quot; /&gt;
