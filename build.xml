@@ -261,6 +261,17 @@
             <arg value="${server}:/var/www/" />
         </exec>
         <exec executable="ssh" checkreturn="true" passthru="true">
+            <arg value="-t" />
+            <arg value="${server}" />
+            <arg value="cd /var/www ; tar -xjf build-${version}.tar.bz2" />
+        </exec>
+    </target>
+
+    <!-- Move the symlink to point to a different version -->
+    <target name="go-live" depends="require-version">
+        <exec executable="ssh" checkreturn="true" passthru="true">
+            <arg value="${server}" />
+            <arg value="cd /var/www; rm app; ln -s build-${version} app" />
         </exec>
     </target>
 </project>

@@ -1290,6 +1290,39 @@ phing-the-things $ git tag
     </li>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    &lt;target name=&quot;go-live&quot; depends=&quot;require-version&quot;&gt;
+        &lt;exec executable=&quot;ssh&quot; checkreturn=&quot;true&quot; passthru=&quot;true&quot;&gt;
+            &lt;arg value=&quot;${server}&quot; /&gt;
+            &lt;arg value=&quot;cd /var/www; rm app; ln -s build-${version} app&quot; /&gt;
+        &lt;/exec&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>The final step of deployments</li>
+        <li>We ssh to the server again</li>
+        <li>delete the old symlink</li>
+        <li>and create a new one</li>
+        <li>In this case, we assume Apache is pointing a /var/www/app</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+    &lt;target name=&quot;deploy&quot;&gt;
+        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+        &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
+        &lt;phingcall target=&quot;prepare&quot; /&gt;
+        &lt;phingcall target=&quot;upload&quot; /&gt;
+        &lt;phingcall target=&quot;go-live&quot; /&gt;
+    &lt;/target&gt;</pre>
+    <ul class="note">
+        <li>Our final full deployment target</li>
+        <li>Lots of small and simple individual targets</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
