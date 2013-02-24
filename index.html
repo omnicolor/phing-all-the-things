@@ -1307,6 +1307,32 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide sanity-check-fail">
+    <img alt="Computer says no" class="centered"
+            src="images/computer-says-no.jpg">
+    <ul class="note">
+        <li>So what if you notice a problem in your shiny new build?</li>
+        <li>Since we split the go-live target out from the upload target</li>
+        <li>It's really easy to roll back</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="cli">phing-the-things$ phing go-live -Dversion=1.2.3</pre>
+    <ul class="note">
+        <li>Your go-live target accepts a version number</li>
+        <li>So just give it your last know good version</li>
+    </ul>
+</section>
+
+<section class="slide backpedal">
+    <pre class="cli">phing-the-things$ phing go-live -Dversion=1.2.3</pre>
+    <img alt="Cat backpedalling" class="centered" src="images/backpedal.jpg">
+    <ul class="note">
+        <li>This kind of makes it your get out of jail free card</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
