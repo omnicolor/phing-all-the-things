@@ -23,6 +23,13 @@
     src: url('fonts/wet1_becker.ttf');
 }
 
+@font-face {
+    font-family: 'Griffy';
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/Griffy-Regular.ttf');
+}
+
 * {
     box-sizing: border-box;
     font-family: Monda;
@@ -324,4 +331,23 @@ div.link {
     margin-left: -600px / 2;
     margin-top: -600px / 2;
     width: 600px;
+}
+
+.slide.sanity-check div {
+    font-family: Griffy;
+    font-size: 600%;
+}
+
+.slide.sanity-check .sanity {
+    color: @color2;
+    margin-left: -200px;
+    margin-top: -100px;
+    -webkit-transform: rotate(90deg);
+}
+
+.slide.sanity-check .check {
+    color: @color3;
+    margin-left: -75px;
+    margin-top: -90px;
+    -webkit-transform: rotate(-90deg);
 }
