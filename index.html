@@ -97,7 +97,8 @@
     &lt;?xml version="1.0" encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
-            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+            &lt;exec executable="phpunit" passthru="true"
+                    checkreturn="true" /&gt;
         &lt;/target&gt;
     &lt;/project&gt;</pre>
     <ul class="note">
@@ -117,7 +118,8 @@
     <span class="highlight">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
     &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
-            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+            &lt;exec executable="phpunit" passthru="true"
+                    checkreturn="true" /&gt;
         &lt;/target&gt;
     &lt;/project&gt;</pre>
     <ul class="note">
@@ -133,7 +135,8 @@
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     <span class="highlight">&lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;</span>
         &lt;target name=&quot;test&quot;&gt;
-            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+            &lt;exec executable="phpunit" passthru="true"
+                    checkreturn="true" /&gt;
         &lt;/target&gt;
     <span class="highlight">&lt;/project&gt;</span></pre>
     <ul class="note">
@@ -147,7 +150,8 @@
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         <span class="highlight">&lt;target name=&quot;test&quot;&gt;</span>
-            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+            &lt;exec executable="phpunit" passthru="true"
+                    checkreturn="true" /&gt;
         <span class="highlight">&lt;/target&gt;</span>
     &lt;/project&gt;</pre>
     <ul class="note">
@@ -162,7 +166,8 @@
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
-            <span class="highlight">&lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;</span>
+            <span class="highlight">&lt;exec executable="phpunit" passthru="true"
+                    checkreturn="true" /&gt;</span>
         &lt;/target&gt;
     &lt;/project&gt;</pre>
     <ul class="note">
@@ -188,13 +193,11 @@ PHPUnit 3.7.13 by Sebastian Bergmann.
 Configuration read from /Users/Omni/phing-example/phpunit.xml
 
 ..............................
-
 Time: 0 seconds, Memory: 7.25Mb
 
 <span class="invert-pass">OK (30 tests, 52 assertions)</span>
 
 <span class="pass">BUILD FINISHED
-
 Total time: 0.3155 seconds</span></pre>
     <ul class="note">
         <li>Now, if you type phing test it will run your task</li>
@@ -204,20 +207,17 @@ Total time: 0.3155 seconds</span></pre>
 
 <section class="slide">
 <pre class="cli"><span class="invert-fail">F</span>.............................
-
 Time: 0 seconds, Memory: 7.25Mb
 
 There was 1 failure:
 
 1) GitTest::testGetCommitInfo
 LOL cats have clogged the tubes!
-
 /Users/Omni/phing-example/tests/GitTest.php:51
 
 <span class="invert-fail">FAILURES!
 Tests: 30, Assertions: 51, Failures: 1.</span>
-<span class="fail">
-Execution of target "test" failed for the following reason: /Users/Omni/phing-example/build.xml:102:46: Task exited with code 1
+<span class="fail">Execution of target "test" failed for the following reason: /Users/Omni/phing-example/build.xml:102:46: Task exited with code 1
 
 BUILD FAILED
 /Users/Omni/phing-example/build.xml:102:46: Task exited with code 1
@@ -231,7 +231,8 @@ Total time: 0.5653 seconds</span></pre>
     <pre class="prettyprint">    &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot; <span class="highlight">default=&quot;test&quot;</span>&gt;
         &lt;target name=&quot;test&quot;&gt;
-            &lt;exec executable="phpunit" passthru="true" checkreturn="true" /&gt;
+            &lt;exec executable="phpunit" passthru="true"
+                    checkreturn="true" /&gt;
         &lt;/target&gt;
     &lt;/project&gt;</pre>
     <ul class="note">
@@ -247,7 +248,8 @@ Total time: 0.5653 seconds</span></pre>
     &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
     &lt;project name=&quot;phing-the-things&quot; default=&quot;test&quot;&gt;
         &lt;target name=&quot;test&quot;&gt;
-            &lt;exec executable="phpunit" passthru="true" <span class="highlight strike">checkreturn="true"</span> /&gt;
+            &lt;exec executable="phpunit" passthru="true"
+                    <span class="highlight strike">checkreturn="true"</span> /&gt;
         &lt;/target&gt;
     &lt;/project&gt;</pre>
     <ul class="note">
@@ -312,7 +314,8 @@ Total time: 0.5619 seconds</span></pre>
 <section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;test&quot;&gt;
-        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
+        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot;
+                checkreturn=&quot;true&quot;&gt;
             <span class="highlight">&lt;arg value=&quot;--exclude-group=integration&quot; /&gt;</span>
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
@@ -328,7 +331,8 @@ Total time: 0.5619 seconds</span></pre>
 <section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;test&quot;&gt;
-        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot; checkreturn=&quot;true&quot;&gt;
+        &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot;
+                checkreturn=&quot;true&quot;&gt;
             <span class="highlight">&lt;arg value=&quot;${phpunitFlag}&quot; /&gt;</span>
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
@@ -370,13 +374,11 @@ PHPUnit 3.7.13 by Sebastian Bergmann.
 Configuration read from /Users/Omni/phing-example/phpunit.xml
 
 ........
-
 Time: 0 seconds, Memory: 7.25Mb
 
 <span class="invert-pass">OK (8 tests, 12 assertions)</span>
 
 <span class="pass">BUILD FINISHED
-
 Total time: 0.1058 seconds</span></pre>
     <ul class="note">
         <li>Another way is from the command line</li>
@@ -385,7 +387,7 @@ Total time: 0.1058 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="no-bottom">composer=/opt/composer.phar
 server1.user=oadams
 server1.url=www.example.lan</pre>
@@ -457,9 +459,8 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide patternset">
-    <pre class="prettyprint">
-    &lt;patternset id=&quot;<span class="highlight">files</span>&quot;&gt;
+<section class="slide patternset even-smaller">
+    <pre class="prettyprint">    &lt;patternset id=&quot;<span class="highlight">files</span>&quot;&gt;
         &lt;include name=&quot;**/*.php&quot; /&gt;
         &lt;exclude name=&quot;third-party/**&quot; /&gt;
         &lt;exclude name=&quot;vendor/**&quot; /&gt;
@@ -492,7 +493,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
         &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
@@ -511,7 +512,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
         <span class="highlight">&lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;</span>
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
@@ -536,7 +537,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
         &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
@@ -556,7 +557,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
         &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
@@ -576,7 +577,7 @@ bar=test</pre>
 </section>
 
 <section class="slide arg-value">
-    <pre class="prettyprint">    &lt;exec executable=&quot;ps&quot; outputProperty=&quot;ps-output&quot;&gt;
+    <pre class="prettyprint no-bottom">    &lt;exec executable=&quot;ps&quot; outputProperty=&quot;ps-output&quot;&gt;
         &lt;arg value=&quot;x&quot; /&gt;
         &lt;arg value=&quot;|&quot; /&gt;
         &lt;arg value=&quot;grep&quot; /&gt;
@@ -668,7 +669,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">     &lt;target name=&quot;require-docdir&quot;&gt;
         &lt;if&gt;
             &lt;not&gt;
@@ -693,7 +694,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint no-bottom">    &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
     &lt;target name=&quot;example&quot; depends=&quot;other-task&quot;&gt;
         &lt;phingcall target=&quot;other-task&quot;&gt;
@@ -784,7 +785,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;uptodate property=&quot;css-compiled&quot; targetfile=&quot;style.css&quot;&gt;
         &lt;srcfiles dir=&quot;styles&quot; includes=&quot;**/*less&quot; /&gt;
     &lt;/uptodate&gt;
@@ -889,7 +890,7 @@ bar=test</pre>
     </ul>
 </section>
 
-<section class="slide tag">
+<section class="slide tags">
     <img alt="Tags" class="centered" src="images/tag.jpg">
     <ul class="note">
         <li>We like to tag our releases with a version number</li>
@@ -960,8 +961,8 @@ ${version}</pre>
 </section>
 
 <section class="slide version">
-    <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
-        <span class="highlight">&lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;</span>
+    <pre class="prettyprint no-bottom">    &lt;target name=&quot;tag-version&quot;&gt;
+        <span class="highlight">&lt;version releasetype=&quot;${release}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;</span>
         &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
             &lt;arg line=&quot;add version.txt&quot; /&gt;
         &lt;/exec&gt;
@@ -981,7 +982,7 @@ ${version}</pre>
 
 <section class="slide version">
     <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
-        &lt;version <span class="highlight">releasetype=&quot;${releaseType}&quot;</span> file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
+        &lt;version <span class="highlight">releasetype=&quot;${release}&quot;</span> file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
         &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
             &lt;arg line=&quot;add version.txt&quot; /&gt;
         &lt;/exec&gt;
@@ -999,7 +1000,7 @@ ${version}</pre>
 
 <section class="slide version">
     <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
-        &lt;version releasetype=&quot;${releaseType}&quot; <span class="highlight">file=&quot;version.txt&quot;</span> property=&quot;version&quot; /&gt;
+        &lt;version releasetype=&quot;${release}&quot; <span class="highlight">file=&quot;version.txt&quot;</span> property=&quot;version&quot; /&gt;
         &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
             &lt;arg line=&quot;add version.txt&quot; /&gt;
         &lt;/exec&gt;
@@ -1020,7 +1021,7 @@ ${version}</pre>
 
 <section class="slide version">
     <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
-        &lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; <span class="highlight">property=&quot;version&quot;</span> /&gt;
+        &lt;version releasetype=&quot;${release}&quot; file=&quot;version.txt&quot; <span class="highlight">property=&quot;version&quot;</span> /&gt;
         &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
             &lt;arg line=&quot;add version.txt&quot; /&gt;
         &lt;/exec&gt;
@@ -1039,7 +1040,7 @@ ${version}</pre>
 
 <section class="slide version">
     <pre class="prettyprint">    &lt;target name=&quot;tag-version&quot;&gt;
-        &lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
+        &lt;version releasetype=&quot;${release}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
         &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
             &lt;arg line=&quot;add version.txt&quot; /&gt;
         &lt;/exec&gt;
@@ -1056,10 +1057,9 @@ ${version}</pre>
 </section>
 
 <section class="slide">
-    <pre class="cli">phing-the-things$ phing tag-version -DreleaseType=minor
+    <pre class="cli">phing-the-things$ phing tag-version -Drelease=minor
 <span class="notice">Buildfile: /Users/Omni/Sites/phing/build.xml
  [property] Loading /Users/Omni/Sites/phing/build.properties</span>
-
 <span class="pass">phing-the-things &gt; tag-version:</span>
 
 [master 4b48e9f] Updated version file to 0.1.0
@@ -1069,7 +1069,6 @@ ${version}</pre>
    [gittag] git-tag output:</span>
 
 <span class="pass">BUILD FINISHED
-
 Total time: 0.3507 seconds</span>
 
 phing-the-things $ git tag
@@ -1085,13 +1084,12 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint">    &lt;target name=&quot;release-major&quot;&gt;
         &lt;phingcall target=&quot;tag-version&quot;&gt;
-            &lt;property name=&quot;releaseType&quot; value=&quot;major&quot; /&gt;
+            &lt;property name=&quot;release&quot; value=&quot;major&quot; /&gt;
         &lt;/phingcall&gt;
     &lt;/target&gt;
-
     &lt;target name=&quot;release-minor&quot;&gt;
         &lt;phingcall target=&quot;tag-version&quot;&gt;
-            &lt;property name=&quot;releaseType&quot; value=&quot;minor&quot; /&gt;
+            &lt;property name=&quot;release&quot; value=&quot;minor&quot; /&gt;
         &lt;/phingcall&gt;
     &lt;/target&gt;</pre>
     <ul class="note">
@@ -1115,15 +1113,15 @@ phing-the-things $ git tag
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">
     &lt;target name=&quot;tag-version-no-file&quot;&gt;
         &lt;exec executable=&quot;git&quot; outputProperty=&quot;latest-version&quot;&gt;
             &lt;arg line=&quot;describe --tags | cut -f1 -d-&quot; /&gt;
         &lt;/exec&gt;
         &lt;echo file=&quot;version.txt&quot;&gt;${latest-version}&lt;/echo&gt;
-        &lt;version releasetype=&quot;${releaseType}&quot; file=&quot;version.txt&quot; property=&quot;version&quot; /&gt;
-        &lt;delete file=&quot;version.txt&quot; /&gt;
+        &lt;version releasetype=&quot;${release}&quot; file=&quot;v.txt&quot; property=&quot;version&quot; /&gt;
+        &lt;delete file=&quot;v.txt&quot; /&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
                     message=&quot;Tagged version ${version}&quot; /&gt;
     &lt;/target&gt;</pre>
@@ -1139,7 +1137,7 @@ phing-the-things $ git tag
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;property name=&quot;build-url&quot;
             value=&quot;https://jenkins/job/phing/lastBuild/api/json?pretty=true&quot; /&gt;
     &lt;target name=&quot;require-green-build-check&quot;&gt;
@@ -1165,13 +1163,13 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;deploy&quot;&gt;
-        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-release&quot; /&gt;
         &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
         &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
     &lt;/target&gt;</pre>
     <ul class="note">
         <li>Here's our deployment task so far</li>
-        <li>We require the user to pass in a releaseType</li>
+        <li>We require the user to pass in a release</li>
         <li>We require the build to be green</li>
         <li>And we tag the new version</li>
         <li>If I wasn't projecting this I would do it slightly differently</li>
@@ -1191,7 +1189,7 @@ phing-the-things $ git tag
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;target name=&quot;prepare&quot;&gt;
         &lt;gitclone repository=&quot;git://gitserver/repos/phing-the-things.git&quot;
                 targetPath=&quot;build&quot; /&gt;
@@ -1216,7 +1214,7 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;deploy&quot;&gt;
-        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-release&quot; /&gt;
         &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
         &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
         &lt;phingcall target=&quot;prepare&quot; /&gt;
@@ -1230,7 +1228,7 @@ phing-the-things $ git tag
     </li>
 </section>
 
-<section class="slide">
+<section class="slide smaller">
     <pre class="prettyprint">    &lt;target name=&quot;upload&quot;&gt;
         &lt;exec executable=&quot;scp&quot; checkreturn=&quot;true&quot;&gt;
             &lt;arg value=&quot;build-${version}.tar.bz2&quot; /&gt;
@@ -1256,7 +1254,7 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;deploy&quot;&gt;
-        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-release&quot; /&gt;
         &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
         &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
         &lt;phingcall target=&quot;prepare&quot; /&gt;
@@ -1275,7 +1273,7 @@ phing-the-things $ git tag
     &lt;target name=&quot;go-live&quot; depends=&quot;require-version&quot;&gt;
         &lt;exec executable=&quot;ssh&quot; checkreturn=&quot;true&quot; passthru=&quot;true&quot;&gt;
             &lt;arg value=&quot;${server}&quot; /&gt;
-            &lt;arg value=&quot;cd /var/www; rm app; ln -s build-${version} app&quot; /&gt;
+            &lt;arg value=&quot;cd /var/www; ln -sf build-${version} app&quot; /&gt;
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
     <ul class="note">
@@ -1290,7 +1288,7 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint">
     &lt;target name=&quot;deploy&quot;&gt;
-        &lt;phingcall target=&quot;require-releaseType&quot; /&gt;
+        &lt;phingcall target=&quot;require-release&quot; /&gt;
         &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
         &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
         &lt;phingcall target=&quot;prepare&quot; /&gt;
