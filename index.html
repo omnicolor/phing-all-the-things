@@ -1279,9 +1279,10 @@ phing-the-things $ git tag
     <ul class="note">
         <li>The final step of deployments</li>
         <li>We ssh to the server again</li>
-        <li>delete the old symlink</li>
-        <li>and create a new one</li>
+        <li>and replace the symlink to point to our new version</li>
+        <li>Our old deployment is still there, it just isn't linked</li>
         <li>In this case, we assume Apache is pointing a /var/www/app</li>
+        <li>Just changing a symlink == instantaneous</li>
     </ul>
 </section>
 
