@@ -1119,7 +1119,7 @@ phing-the-things $ git tag
         &lt;exec executable=&quot;git&quot; outputProperty=&quot;latest-version&quot;&gt;
             &lt;arg line=&quot;describe --tags | cut -f1 -d-&quot; /&gt;
         &lt;/exec&gt;
-        &lt;echo file=&quot;version.txt&quot;&gt;${latest-version}&lt;/echo&gt;
+        &lt;echo file=&quot;v.txt&quot;&gt;${latest-version}&lt;/echo&gt;
         &lt;version releasetype=&quot;${release}&quot; file=&quot;v.txt&quot; property=&quot;version&quot; /&gt;
         &lt;delete file=&quot;v.txt&quot; /&gt;
         &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
