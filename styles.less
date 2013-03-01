@@ -30,6 +30,13 @@
     src: url('fonts/Griffy-Regular.ttf');
 }
 
+@font-face {
+    font-family: EnvyCodeR;
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/Envy Code R.ttf');
+}
+
 * {
     box-sizing: border-box;
     font-family: Monda;
@@ -88,13 +95,19 @@
     background-color: #000000;
     bottom: 0;
     color: #ffffff;
-    font-size: 80%;
+    font-family: EnvyCodeR;
+    font-size: 100%;
     left: 0;
     margin: 0 inherit;
     padding: 0 2.5em;
     position: absolute;
     right: 0;
     top: 0;
+}
+
+section.slide pre.cli * {
+    font-family: EnvyCodeR;
+    font-size: 100%;
 }
 
 pre.cli .notice {
