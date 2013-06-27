@@ -1187,6 +1187,43 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    &lt;target name=&quot;build-config&quot;&gt;
+        &lt;copy file=&quot;build/config/config.php.dist&quot;
+                tofile=&quot;build/config/config.php&quot;&gt;
+            &lt;filterchain&gt;
+                &lt;replacetokens&gt;
+                    &lt;token key=&quot;DB-PASSWORD&quot;
+                            value=&quot;${db.password}&quot; /&gt;
+                &lt;/replacetokens&gt;
+            &lt;/filterchain&gt;
+        &lt;/copy&gt;
+    &lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Let's build a configuration file</li>
+        <li>Hopefully you're not checking passwords in</li>
+        <li>We'll add them to your build.properties</li>
+        <li>and then create a config file from them</li>
+        <li>This copies a file and replaces the DB-PASSWORD token</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+        &lt;?php
+        return array(
+            'username' =&gt; 'appuser',
+            'password' =&gt; '@DB-PASSWORD@',
+        );
+    </pre>
+    <ul class="note">
+        <li>The configuration file will look something like this</li>
+        <li>The important part here is the DB-PASSWORD</li>
+    </ul>
+</section>
+
 <section class="slide prepare">
     <img alt="Prepare yourself - Deployment is coming" class="centered"
             src="images/prepare-yourself.jpg">
@@ -1205,6 +1242,7 @@ phing-the-things $ git tag
         &lt;gitcheckout repository=&quot;build&quot; branchname=&quot;${version}&quot; quiet=&quot;true&quot; /&gt;
         &lt;delete dir=&quot;build/tests&quot; /&gt;
         &lt;delete file=&quot;build/build.xml&quot; /&gt;
+        &lt;phingcall target=&quot;build-config&quot; /&gt;
         &lt;tar destfile=&quot;build-${version}.tar.bz2&quot; basedir=&quot;build&quot;
                 includeemptydir=&quot;true&quot; compression=&quot;bzip2&quot; /&gt;
         &lt;delete dir=&quot;build&quot; /&gt;
