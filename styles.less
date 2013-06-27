@@ -43,11 +43,6 @@
     font-size: 120%;
 }
 
-section.slide {
-    height: 730px;
-    min-height: 730px;
-}
-
 .slide.smaller pre {
     font-size: 110%;
 }
@@ -87,16 +82,8 @@ section.slide {
     float: right;
 }
 
-.deck-current ul.note {
-    bottom: 0;
-    font-size: 90%;
-    left: 0;
-    overflow: scroll;
-    margin: 0;
-    padding-left: 1em;
-    position: fixed;
-    right: 0;
-    top: 736px;
+.note {
+    display: none;
 }
 
 .highlight {
@@ -155,10 +142,9 @@ pre.cli .invert-fail {
 
 .deck-status,
 .slide::after {
+    bottom: 0;
     font-size: 120%;
     position: fixed;
-    top: 680px;
-    z-index: 9;
 }
 
 .deck-status {
