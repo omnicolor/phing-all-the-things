@@ -40,7 +40,12 @@
 * {
     box-sizing: border-box;
     font-family: Monda;
-    font-size: 120%;
+    font-size: 110%;
+}
+
+section.slide {
+    height: 600px;
+    min-height: 600px;
 }
 
 .slide.smaller pre {
@@ -82,8 +87,16 @@
     float: right;
 }
 
-.note {
-    display: none;
+.deck-current ul.note {
+    bottom: 0;
+    font-size: 90%;
+    left: 0;
+    overflow: scroll;
+    margin: 0;
+    padding-left: 1em;
+    position: fixed;
+    right: 0;
+    top: 606px;
 }
 
 .highlight {
@@ -145,6 +158,8 @@ pre.cli .invert-fail {
     bottom: 0;
     font-size: 120%;
     position: fixed;
+    top: 565px;
+    z-index: 9;
 }
 
 .deck-status {
