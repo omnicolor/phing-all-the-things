@@ -292,6 +292,8 @@ Total time: 0.5619 seconds</span></pre>
         <li>
             So if you have to add this extra attribute to get sane behavior...
         </li>
+        <li>There are some places where you might not want to fail the build</li>
+        <li>like building documentation for example</li>
         <li>The phpunit task is limited in what you can configure</li>
     </ul>
 </section>
@@ -341,6 +343,7 @@ Total time: 0.5619 seconds</span></pre>
     <ul class="note">
         <li>Another that's pretty helpful is a flag</li>
         <li>This lets you modify phpunit behavior while running phing</li>
+        <li>to run just a single test file for example</li>
     </ul>
 </section>
 
@@ -424,6 +427,7 @@ server1.url=www.example.lan</pre>
     <ul class="note">
         <li>One thing that can easily trip you up</li>
         <li>Properties are mostly immutable</li>
+        <li>except when they're not</li>
         <li>There are a few exceptions to this rule, and we'll get to those</li>
     </ul>
 </section>
