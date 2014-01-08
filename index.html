@@ -446,18 +446,18 @@ server1.url=www.example.lan</pre>
 
 <section class="slide">
     <pre># build.properties
-foo=test
-bar=test</pre>
-    <pre class="prettyprint">    &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
+author=Omni
+title=Phing All The Things</pre>
+    <pre class="prettyprint">    &lt;property name=&quot;author&quot; value=&quot;Other Guy&quot; /&gt;
     &lt;property file=&quot;build.properties&quot; /&gt;
-    &lt;property name=&quot;mitz&quot; value=&quot;fah&quot; /&gt;</pre>
+    &lt;property name=&quot;title&quot; value=&quot;Phing-a-ling&quot; /&gt;</pre>
     <ul class="note">
-        <li>If you don't put your build.properties file first, it doesn't</li>
+        <li>here we've got an example properties and snippet from build.xml</li>
         <li>
-            So in this case, you might think build.properties sets both to test
+            In this case, you might think build.properties sets both properties
         </li>
-        <li>But the foo property has already been set, so it is still 'bar'</li>
-        <li>While the mitz value is set to 'test'</li>
+        <li>But the author property has already been set, so it is still 'Other Guy'</li>
+        <li>While the title value is set to 'Phing All The Things'</li>
         <li>This does let you control which variables can be overridden</li>
         <li>If you set some before build.properties is included, they're set</li>
         <li>Those set after it's included can be changed by the user</li>
