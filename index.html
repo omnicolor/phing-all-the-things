@@ -679,6 +679,7 @@ title=Phing All The Things</pre>
     <ul class="note">
         <li>Here's two targets that depend on others</li>
         <li>The first one, "build", doesn't do any work on its own</li>
+        <li>it just causes the target named test to run</li>
         <li>The second depends on the require-doc target</li>
         <li>require-doc gets run, and it if doesn't fail the build</li>
         <li>Then phpunit is run</li>
