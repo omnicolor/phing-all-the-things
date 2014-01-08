@@ -714,30 +714,30 @@ title=Phing All The Things</pre>
 </section>
 
 <section class="slide even-smaller">
-    <pre class="prettyprint no-bottom">    &lt;property name=&quot;foo&quot; value=&quot;bar&quot; /&gt;
+    <pre class="prettyprint no-bottom">    &lt;property name=&quot;foo&quot; value=&quot;not-test&quot; /&gt;
     &lt;target name=&quot;example&quot; depends=&quot;other-task&quot;&gt;
         &lt;phingcall target=&quot;other-task&quot;&gt;
             &lt;property name=&quot;foo&quot; value=&quot;test&quot; /&gt;
-            &lt;property name=&quot;baz&quot; value=&quot;test&quot; /&gt;
+            &lt;property name=&quot;bar&quot; value=&quot;test&quot; /&gt;
         &lt;/phingcall&gt;
         &lt;phingcall target=&quot;other-task&quot; /&gt;
     &lt;/target&gt;
     &lt;target name=&quot;other-task&quot;&gt;
         &lt;echo message=&quot;${foo}&quot; /&gt;
-        &lt;echo message=&quot;${baz}&quot; /&gt;
+        &lt;echo message=&quot;${bar}&quot; /&gt;
     &lt;/target&gt;</pre>
     <ul class="note">
         <li>The other way of calling another task is with phingcall</li>
         <li>The difference between dependencies and phingcall is properties</li>
         <li>If you call this example target it calls other task three times</li>
-        <li>The first time is the dependency, where baz is not set</li>
+        <li>The first time is the dependency, where bar is not set</li>
         <li>
-            Then it calls it with a property set inside, so baz will be set
+            Then it calls it with a property set inside, so bar will be set
         </li>
         <li>Note that foo is changed to test in the second example</li>
         <li>If you read the documentation it makes it sound like this...</li>
         <li>When that call finishes, any of its properties are unset</li>
-        <li>So in the third call baz is also unset</li>
+        <li>So in the third call bar is also unset and foo is reset</li>
     </ul>
 </section>
 
