@@ -512,14 +512,14 @@ title=Phing All The Things</pre>
 </section>
 
 <section class="slide smaller">
-    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
-        &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-doc&quot;&gt;
+        &lt;mkdir dir=&quot;${doc}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
             &lt;arg value=&quot;--directory=.&quot; /&gt;
             &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
             &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
             &lt;arg value=&quot;--progressbar&quot; /&gt;
-            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            &lt;arg value=&quot;--target=${doc}/api&quot; /&gt;
             &lt;arg value=&quot;--title=API documentation&quot; /&gt;
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
@@ -531,14 +531,14 @@ title=Phing All The Things</pre>
 </section>
 
 <section class="slide smaller">
-    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
-        <span class="highlight">&lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;</span>
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-doc&quot;&gt;
+        <span class="highlight">&lt;mkdir dir=&quot;${doc}/api&quot; /&gt;</span>
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
             &lt;arg value=&quot;--directory=.&quot; /&gt;
             &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
             &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
             &lt;arg value=&quot;--progressbar&quot; /&gt;
-            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            &lt;arg value=&quot;--target=${doc}/api&quot; /&gt;
             &lt;arg value=&quot;--title=API documentation&quot; /&gt;
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
@@ -556,14 +556,14 @@ title=Phing All The Things</pre>
 </section>
 
 <section class="slide smaller">
-    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
-        &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-doc&quot;&gt;
+        &lt;mkdir dir=&quot;${doc}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
             <span class="highlight">&lt;arg value=&quot;--directory=.&quot; /&gt;</span>
             &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
             &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
             &lt;arg value=&quot;--progressbar&quot; /&gt;
-            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            &lt;arg value=&quot;--target=${doc}/api&quot; /&gt;
             &lt;arg value=&quot;--title=API documentation&quot; /&gt;
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
@@ -576,14 +576,14 @@ title=Phing All The Things</pre>
 </section>
 
 <section class="slide smaller">
-    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-docdir&quot;&gt;
-        &lt;mkdir dir=&quot;${docdir}/api&quot; /&gt;
+    <pre class="prettyprint">    &lt;target name=&quot;document&quot; depends=&quot;require-doc&quot;&gt;
+        &lt;mkdir dir=&quot;${doc}/api&quot; /&gt;
         &lt;exec executable=&quot;phpdoc&quot; passthru=&quot;true&quot;&gt;
             &lt;arg value=&quot;--directory=.&quot; /&gt;
             &lt;arg value=&quot;--ignore=vendor/*&quot; /&gt;
             &lt;arg value=&quot;--ignore=src/*&quot; /&gt;
             &lt;arg value=&quot;--progressbar&quot; /&gt;
-            &lt;arg value=&quot;--target=${docdir}/api&quot; /&gt;
+            &lt;arg value=&quot;--target=${doc}/api&quot; /&gt;
             <span class="highlight">&lt;arg value=&quot;--title=API documentation&quot; /&gt;</span>
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
@@ -670,36 +670,36 @@ title=Phing All The Things</pre>
 <section class="slide">
     <pre class="prettyprint">    &lt;target name=&quot;build&quot; depends=&quot;test&quot; /&gt;
 
-    &lt;target name=&quot;coverage-html&quot; depends=&quot;require-docdir&quot;&gt;
+    &lt;target name=&quot;coverage-html&quot; depends=&quot;require-doc&quot;&gt;
         &lt;exec executable=&quot;phpunit&quot; passthru=&quot;true&quot;&gt;
-            &lt;arg value=&quot;--coverage-html=${docdir}/coverage&quot; /&gt;
+            &lt;arg value=&quot;--coverage-html=${doc}/coverage&quot; /&gt;
             &lt;arg value=&quot;${phpunitFlag}&quot; /&gt;
         &lt;/exec&gt;
     &lt;/target&gt;</pre>
     <ul class="note">
         <li>Here's two targets that depend on others</li>
         <li>The first one, "build", doesn't do any work on its own</li>
-        <li>The second depends on the require-docdir target</li>
-        <li>require-docdir gets run, and it if doesn't fail the build</li>
+        <li>The second depends on the require-doc target</li>
+        <li>require-doc gets run, and it if doesn't fail the build</li>
         <li>Then phpunit is run</li>
         <li>In this case, phpunit is building code coverage</li>
-        <li>and writing it where that docdir property tells it to</li>
+        <li>and writing it where that doc property tells it to</li>
     </ul>
 </section>
 
 <section class="slide smaller">
-    <pre class="prettyprint">     &lt;target name=&quot;require-docdir&quot;&gt;
+    <pre class="prettyprint">     &lt;target name=&quot;require-doc&quot;&gt;
         &lt;if&gt;
             &lt;not&gt;
-                &lt;isset property=&quot;docdir&quot; /&gt;
+                &lt;isset property=&quot;doc&quot; /&gt;
             &lt;/not&gt;
             &lt;then&gt;
-                &lt;fail message=&quot;docdir isn't set in your build.properties file&quot; /&gt;
+                &lt;fail message=&quot;doc isn't set in your build.properties file&quot; /&gt;
             &lt;/then&gt;
         &lt;/if&gt;
     &lt;/target&gt;</pre>
     <ul class="note">
-        <li>Here's that require-docdir target</li>
+        <li>Here's that require-doc target</li>
         <li>
             Basically, this is just checking to see if a property is defined
         </li>
@@ -938,7 +938,7 @@ title=Phing All The Things</pre>
         &lt;gitpush repository=&quot;.&quot; tags=&quot;true&quot; quiet=&quot;true&quot; /&gt;
     &lt;/target&gt;</pre>
     <ul class="note">
-        <li>require-version here is similiar to the require-docdir task</li>
+        <li>require-version here is similiar to the require-doc task</li>
         <li>Assuming you install phing with VersionControl_Git depend...</li>
         <li>This will tag the repository with the git tag you specify</li>
         <li>And push it up to your remote repository</li>
