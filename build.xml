@@ -274,4 +274,10 @@
             <arg value="cd /var/www; rm app; ln -s build-${version} app" />
         </exec>
     </target>
+
+    <!-- Example of calling a custom written class -->
+    <taskdef name="updateNewRelic" classname="UpdateNewRelicTask" />
+    <target name="newRelic">
+        <updateNewRelic />
+    </target>
 </project>
