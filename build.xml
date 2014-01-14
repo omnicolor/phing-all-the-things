@@ -278,6 +278,8 @@
     <!-- Example of calling a custom written class -->
     <taskdef name="updateNewRelic" classname="UpdateNewRelicTask" />
     <target name="newRelic">
-        <updateNewRelic />
+        <updateNewRelic apiKey="api-key"
+            appId="123456" url="https://api.newrelic.com/deployments.xml"
+            version="1.2.4" />
     </target>
 </project>
