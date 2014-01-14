@@ -1378,6 +1378,78 @@ phing-the-things $ git tag
     </ul>
 </section>
 
+<section class="slide monitored">
+    <div class="centered">
+        !$monitored == !$exist
+    </div>
+    <ul class="note">
+        <li>Any sysadmins or devops</li>
+        <li>If you don't monitor things, they don't exist</li>
+        <li>Depending on your monitoring system</li>
+        <li>you may want to mark the deployment</li>
+    </ul>
+</section>
+
+<section class="slide ops-problem">
+    <img alt="Worked in dev..." class="centered" src="images/ops-problem.jpg">
+    <ul class="note">
+        <li>custom task</li>
+        <li>mark deployment on New Relic</li>
+        <li>could be done from exec, showing custom tasks</li>
+        <li>marking deployments in your monitoring system</li>
+        <li>shows code changes so you can track metric changes</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+&lt;?php
+require_once 'phing/Task.php';
+class UpdateNewRelicTask extends Task {
+    public function init() {
+        // Runs when task is imported
+    }
+    public function main() {
+        // Runs when task is executed
+    }
+}
+    </pre>
+    <ul class="note">
+        <li>Here's an outline of an empty Phing task</li>
+        <li>The init method gets called when the task class gets imported</li>
+        <li>The main function gets called when the task is actually run</li>
+        <li>What does that mean?</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+<span class="highlight">&lt;taskdef name=&quot;newrelic&quot; classname=&quot;UpdateNewRelicTask&quot; /&gt;</span>
+&lt;target name=&quot;update-new-relic&quot;&gt;
+    &lt;newrelic /&gt;
+&lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>First, you have to import your custom task with a taskdef tag</li>
+        <li>Import task from current directory</li>
+        <li>from file called UpdateNewRelicTask.php</li>
+        <li>Directories would be separated from the file name with periods</li>
+        <li>Once imported, the task tag would be called newrelic</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+&lt;taskdef name=&quot;newrelic&quot; classname=&quot;UpdateNewRelicTask&quot; /&gt;
+&lt;target name=&quot;update-new-relic&quot;&gt;
+    <span class="highlight">&lt;newrelic /&gt;</span>
+&lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Then you can use the new task tag like you would use any other</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
