@@ -1450,6 +1450,79 @@ class UpdateNewRelicTask extends Task {
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+class UpdateNewRelicTask extends Task {
+    protected $version;
+
+    public function setVersion($version) {
+        $this-&gt;version = $version;
+    }
+}
+    </pre>
+    <ul class="note">
+        <li>To get data in to your task, you can add setters</li>
+        <li>In this case the class will expect you to pass in a version</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+&lt;target name=&quot;update-new-relic&quot;&gt;
+    &lt;newrelic <span class="highlight">version=&quot;${version}&quot;</span> /&gt;
+&lt;/target&gt;
+    </pre>
+    <ul class="note">
+        <li>Using the version attribute on our task</li>
+        <li>We can pass in our version property</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+public function main() {
+    $options = array(
+        CURLOPT_POSTFIELDS =&gt; array(
+            'deployment[application_id]' =&gt; $this-&gt;appId,
+            'deployment[description]' =&gt; $this-&gt;version ),
+        CURLOPT_HTTPHEADER =&gt; array(
+            'x-api-key: ' . $this-&gt;apiKey ),
+        CURLOPT_URL =&gt; $this-&gt;url,
+    );
+    ...
+}
+    </pre>
+    <ul class="note">
+        <li>To tag a deployment, there's a few things we need to send</li>
+        <li>Our application ID</li>
+        <li>The version</li>
+        <li>and the API key</li>
+        <li>All of these should have setters and be passed in via attributes</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+public function main() {
+    ...
+    $ch = curl_init();
+    curl_setopt_array($ch, $options);
+    curl_exec($ch);
+    curl_close($ch);
+}</pre>
+    <ul class="note">
+        <li>Then you have the standard CURL stuff to finish out main</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <img alt="New Relic example" src="images/deployed.png">
+    <ul class="note">
+        <li>Now when you look at your dashboard, you'll have a line</li>
+        <li>This lets you see when you have spikes</li>
+    </ul>
+</section>
+
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
