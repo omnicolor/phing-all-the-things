@@ -23,7 +23,7 @@
 <section class="slide about-me">
     <div class="centered">
         <img alt="Omni Adams" class="pull-left" src="images/omni-simpson.jpg">
-        <ul class="pull-right">
+        <ul class="pull-right about">
             <li>Omni Adams</li>
             <li>@omnicolor</li>
             <li>http://omni-spot.blogspot.com</li>
@@ -812,7 +812,8 @@ Total time: 0.1058 seconds</span></pre>
        targetfile=&quot;style.css&quot;&gt;
      &lt;srcfiles dir=&quot;styles&quot; includes=&quot;**/*less&quot; /&gt;
  &lt;/uptodate&gt;
- &lt;target name=&quot;compile-css&quot; <span class="highlight">unless=&quot;css-compiled&quot;</span>&gt;
+ &lt;target name=&quot;compile-css&quot;
+           <span class="highlight">unless=&quot;css-compiled&quot;</span>&gt;
      &lt;exec executable=&quot;lessc&quot; passthru=&quot;true&quot;
             checkreturn=&quot;true&quot;&gt;
          &lt;arg value=&quot;-x&quot; /&gt;
@@ -836,7 +837,7 @@ Total time: 0.1058 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide even-smaller">
     <pre class="prettyprint"> <span class="highlight">&lt;available property=&quot;exists&quot; file=&quot;composer.phar&quot; /&gt;</span>
  &lt;target name=&quot;get-composer&quot; unless=&quot;exists&quot;&gt;
      &lt;exec executable=&quot;curl&quot; output=&quot;composer.php&quot;&gt;
@@ -855,7 +856,7 @@ Total time: 0.1058 seconds</span></pre>
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide even-smaller">
     <pre class="prettyprint"> &lt;available property=&quot;exists&quot; file=&quot;composer.phar&quot; /&gt;
  &lt;target name=&quot;get-composer&quot; <span class="highlight">unless=&quot;exists&quot;&gt;</span>
      &lt;exec executable=&quot;curl&quot; output=&quot;composer.php&quot;&gt;
@@ -947,7 +948,8 @@ Total time: 0.1058 seconds</span></pre>
      &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot;
              repository=&quot;.&quot;
              message=&quot;Tagged version ${version}&quot; /&gt;
-     &lt;gitpush repository=&quot;.&quot; tags=&quot;true&quot; quiet=&quot;true&quot; /&gt;
+     &lt;gitpush repository=&quot;.&quot; tags=&quot;true&quot;
+             quiet=&quot;true&quot; /&gt;
  &lt;/target&gt;</pre>
     <ul class="note">
         <li>require-version here is similiar to the require-doc task</li>
@@ -1012,7 +1014,7 @@ ${version}</pre>
          &lt;arg line=&quot;add version.txt&quot; /&gt;
      &lt;/exec&gt;
      &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
-         &lt;arg line=&quot;commit -m 'Updated version file: ${version}'&quot; /&gt;
+         &lt;arg line=&quot;commit -m 'Updated version ${version}'&quot; /&gt;
      &lt;/exec&gt;
      &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
              message=&quot;Tagged version ${version}&quot; /&gt;
@@ -1033,7 +1035,7 @@ ${version}</pre>
          &lt;arg line=&quot;add version.txt&quot; /&gt;
      &lt;/exec&gt;
      &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
-         &lt;arg line=&quot;commit -m 'Updated version file: ${version}'&quot; /&gt;
+         &lt;arg line=&quot;commit -m 'Updated version ${version}'&quot; /&gt;
      &lt;/exec&gt;
      &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
              message=&quot;Tagged version ${version}&quot; /&gt;
@@ -1052,7 +1054,7 @@ ${version}</pre>
          &lt;arg line=&quot;add version.txt&quot; /&gt;
      &lt;/exec&gt;
      &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
-         &lt;arg line=&quot;commit -m 'Updated version file: ${version}'&quot; /&gt;
+         &lt;arg line=&quot;commit -m 'Updated version ${version}'&quot; /&gt;
      &lt;/exec&gt;
      &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
              message=&quot;Tagged version ${version}&quot; /&gt;
@@ -1074,7 +1076,7 @@ ${version}</pre>
          &lt;arg line=&quot;add version.txt&quot; /&gt;
      &lt;/exec&gt;
      &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
-         &lt;arg line=&quot;commit -m 'Updated version file: ${version}'&quot; /&gt;
+         &lt;arg line=&quot;commit -m 'Updated version ${version}'&quot; /&gt;
      &lt;/exec&gt;
      &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
              message=&quot;Tagged version ${version}&quot; /&gt;
@@ -1094,7 +1096,7 @@ ${version}</pre>
          &lt;arg line=&quot;add version.txt&quot; /&gt;
      &lt;/exec&gt;
      &lt;exec executable=&quot;git&quot; passthru=&quot;true&quot;&gt;
-         &lt;arg line=&quot;commit -m 'Updated version file: ${version}'&quot; /&gt;
+         &lt;arg line=&quot;commit -m 'Updated version ${version}'&quot; /&gt;
      &lt;/exec&gt;
      &lt;gittag annotate=&quot;true&quot; name=&quot;${version}&quot; repository=&quot;.&quot;
              message=&quot;Tagged version ${version}&quot; /&gt;
@@ -1149,7 +1151,7 @@ phing-the-things $ git tag
     </ul>
 </section>
 
-<section class="slide smaller">
+<section class="slide even-smaller">
     <pre class="prettyprint"> &lt;target name=&quot;tag-svn&quot;&gt;
      &lt;svncopy svnpath=&quot;${svnpath}&quot;
          password=&quot;${svnpass}&quot; nocache=&quot;true&quot;
@@ -1164,7 +1166,7 @@ phing-the-things $ git tag
     </ul>
 </section>
 
-<section class="slide smaller">
+<section class="slide even-smaller">
     <pre class="prettyprint"> &lt;target name=&quot;tag-version-no-file&quot;&gt;
      &lt;exec executable=&quot;git&quot; outputProperty=&quot;latest&quot;&gt;
       &lt;arg line=&quot;tag |sort -t. -k 1,1n -k 2,2n -k 3,3n |tail -1&quot;/&gt;
@@ -1217,7 +1219,7 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint"> &lt;target name=&quot;deploy&quot;&gt;
      &lt;phingcall target=&quot;require-release&quot; /&gt;
-     &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+     &lt;phingcall target=&quot;require-green-build-check&quot;/&gt;
      &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
  &lt;/target&gt;</pre>
     <ul class="note">
@@ -1242,7 +1244,7 @@ phing-the-things $ git tag
     </ul>
 </section>
 
-<section class="slide smaller">
+<section class="slide even-smaller">
     <pre class="prettyprint"> &lt;target name=&quot;prepare&quot;&gt;
      &lt;gitclone repository=&quot;git://server/phing-things.git&quot;
          targetPath=&quot;build&quot; /&gt;
@@ -1268,7 +1270,7 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint"> &lt;target name=&quot;deploy&quot;&gt;
      &lt;phingcall target=&quot;require-release&quot; /&gt;
-     &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+     &lt;phingcall target=&quot;require-green-build-check&quot;/&gt;
      &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
      &lt;phingcall target=&quot;prepare&quot; /&gt;
  &lt;/target&gt;</pre>
@@ -1284,12 +1286,12 @@ phing-the-things $ git tag
 <section class="slide even-smaller">
     <pre class="prettyprint"> &lt;target name=&quot;upload&quot;&gt;
      &lt;exec executable=&quot;scp&quot; checkreturn=&quot;true&quot;&gt;
-         &lt;arg value=&quot;build-${version}.tar.bz2&quot; /&gt;
-         &lt;arg value=&quot;${server}:/var/www/&quot; /&gt;
+       &lt;arg value=&quot;build-${version}.tar.bz2&quot; /&gt;
+       &lt;arg value=&quot;${server}:/var/www/&quot; /&gt;
      &lt;/exec&gt;
      &lt;exec executable=&quot;ssh&quot; checkreturn=&quot;true&quot; passthru=&quot;true&quot;&gt;
-         &lt;arg value=&quot;${server}&quot; /&gt;
-         &lt;arg value=&quot;cd /var/www ;tar -xjf build-${version}.tar.bz2&quot; /&gt;
+       &lt;arg value=&quot;${server}&quot; /&gt;
+       &lt;arg value=&quot;cd /var/www;tar -xjf build-${version}.tar.bz2&quot;/&gt;
      &lt;/exec&gt;
  &lt;/target&gt;</pre>
     <ul class="note">
@@ -1307,7 +1309,7 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint"> &lt;target name=&quot;deploy&quot;&gt;
      &lt;phingcall target=&quot;require-release&quot; /&gt;
-     &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+     &lt;phingcall target=&quot;require-green-build-check&quot;/&gt;
      &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
      &lt;phingcall target=&quot;prepare&quot; /&gt;
      &lt;phingcall target=&quot;upload&quot; /&gt;
@@ -1340,7 +1342,7 @@ phing-the-things $ git tag
 <section class="slide">
     <pre class="prettyprint"> &lt;target name=&quot;deploy&quot;&gt;
      &lt;phingcall target=&quot;require-release&quot; /&gt;
-     &lt;phingcall target=&quot;require-green-build-check&quot; /&gt;
+     &lt;phingcall target=&quot;require-green-build-check&quot;/&gt;
      &lt;phingcall target=&quot;tag-version-no-file&quot; /&gt;
      &lt;phingcall target=&quot;prepare&quot; /&gt;
      &lt;phingcall target=&quot;upload&quot; /&gt;
@@ -1481,7 +1483,7 @@ phing-the-things $ git tag
     </ul>
 </section>
 
-<section class="slide">
+<section class="slide even-smaller">
     <pre class="prettyprint">public function main() {
     $options = array(
         CURLOPT_POSTFIELDS =&gt; array(

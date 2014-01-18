@@ -44,12 +44,10 @@
 }
 
 section.slide {
-    height: 768px;
-    min-height: 730px;
-}
-
-.slide.smaller pre {
     font-size: 110%;
+    height: 100%;
+    min-height: 768px;
+    width: 900px;
 }
 
 .slide.even-smaller pre {
@@ -88,7 +86,12 @@ section.slide {
 }
 
 .deck-current ul.note {
-    display: none;
+    display: block;
+    margin-top: -2em;
+    position: absolute;
+    left: 940px;
+    top: 0;
+    width: 400px;
 }
 
 .highlight {
@@ -142,19 +145,18 @@ pre.cli .invert-fail {
 .slide {
     border-bottom: 2em solid @color1;
     border-top: 2em solid @color3;
-    margin-bottom: -2.1em;
 }
 
 .deck-status,
 .slide::after {
+    bottom: 3px;
     font-size: 120%;
     position: fixed;
-    top: 717px;
     z-index: 9;
 }
 
 .deck-status {
-    right: 1em;
+    left: 770px;
     z-index: 9;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
@@ -176,14 +178,16 @@ pre.cli .invert-fail {
 }
 
 .about-me div {
-    margin-left: -15em;
+    margin-left: -13em;
     margin-top: -155px;
     width: 30em;
 }
 
-.about-me ul {
+.about-me ul.about {
+    left: 190px;
     list-style: none;
     margin-top: -.25em;
+    position: absolute;
 }
 
 .lazy-development img {
@@ -388,7 +392,7 @@ div.link {
 .slide.monitored div {
     font-family: Ranchers;
     font-size: 400%;
-    margin-left: -500px;
+    margin-left: -450px;
     margin-top: -70px;
     width: 1000px;
 }
@@ -401,7 +405,7 @@ div.link {
 
 img.mashery {
     height: 5em;
+    left: 700px;
     position: fixed;
-    right: 0;
     top: 2em;
 }
