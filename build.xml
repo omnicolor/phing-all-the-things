@@ -132,7 +132,7 @@
             <arg value="|" />
             <arg value="php" />
         </exec>
-        <chmod file="composer.phar" perm="664" />
+        <chmod file="composer.phar" mode="664" />
     </target>
 
     <!-- Tag the git repository with a version -->
